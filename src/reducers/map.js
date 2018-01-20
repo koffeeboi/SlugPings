@@ -1,10 +1,39 @@
-import * as types from "../constants/MapConstants";
+import * as types from "../constants/GoogleMapConstants";
 
 const initialState = {
+  currentLocClicked: {
+    x: 0,
+    y: 0,
+    lat: 0,
+    lng: 0,
+  },
+  markers: [{
+    x: 5,
+    y: 5,
+    lat: 12,
+    lng: 30,
+  }]
 };
 
 const map = (state = initialState, action) => {
   switch (action.type) {
+    case (types.MAP_SET_CURR_LOC): {
+      return {
+        ...state,
+        currentLocClicked: { ...action.payload },
+      };
+    }
+
+    case (types.MAP_PUSH_MARKER): {
+      return {
+        ...state,
+        markers: [
+          ...state.markers,
+          action.payload,
+        ],
+      };
+    }
+
     default:
       return state;
   }
