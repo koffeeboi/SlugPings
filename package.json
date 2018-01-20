@@ -22,10 +22,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "client": "npm start",
+    "eject": "react-scripts eject", 
+    "client": "yarn start",
     "server": "nodemon ./src/server.js",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "proxy": "http://localhost:5000/"
 }
