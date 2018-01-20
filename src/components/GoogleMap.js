@@ -28,8 +28,14 @@ class GoogleMap extends Component {
   }
 
   _onClick({ x, y, lat, lng, event }) {
+    console.log("map clicked");
+
     const { pushMarker } = this.props;
-    pushMarker({ x, y, lat, lng });
+    if (event.target.className.includes("marker-text")) {
+      event.target.focus();
+    } else {
+      pushMarker({ x, y, lat, lng });
+    }
   }
 
   _genMarkers() {
@@ -40,7 +46,6 @@ class GoogleMap extends Component {
           key={"marker-" + index}
           lat={marker.lat}
           lng={marker.lng}
-          text={"lat: " + marker.lat + " lng " + marker.lng}
         />
       )
     });
@@ -50,6 +55,7 @@ class GoogleMap extends Component {
     return (
       <div className="map-container">
         <GoogleMapReact
+          className="map"
           bootstrapURLKeys={{
             key: "AIzaSyAbDBAOO2E-5onre2peQuHTcaOtn1dav6k",
             language: 'en',
@@ -60,11 +66,6 @@ class GoogleMap extends Component {
           onClick={this._onClick}
         >
           {this._genMarkers()}
-          {/* <Marker
-            lat={59.955413}
-            lng={30.337844}
-            text={'Place'}
-          /> */}
         </GoogleMapReact>
       </div>
     );

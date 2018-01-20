@@ -11,10 +11,13 @@
 }
 
 .marker-text {
+  min-width: 50px;
+  min-height: 10px;
   position: absolute;
   left: -10px;
   bottom: 35px;
-  background-color: lightgreen;
+  background-color: lightblue;
+  border: solid rgba(0, 0, 0, 0.5) 1px;
   padding: 5px;
   border-radius: 10px;
 }
@@ -27,20 +30,7 @@
   height: 0; 
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 10px solid lightgreen;
+  border-top: 10px solid lightblue;
   bottom: -10px;
   left: 10px;
 }
-
-/* .marker-text:after {
-  position: absolute;
-  display: block;
-  content: "";  
-  border-color: lightgreen transparent transparent;
-  border-style: solid;
-  border-width: 10px;
-  height:0;
-  width:0;
-  bottom:-19px;
-  left:1em;
-} */
