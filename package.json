@@ -27,5 +27,5 @@
     "server": "nodemon ./src/server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
-  "proxy": "http://localhost:5000/"
+  "proxy": "https://cryptic-cliffs-20040.herokuapp.com:5000/"
 }
