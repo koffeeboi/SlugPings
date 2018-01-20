@@ -22,10 +22,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "client": "yarn start",
-    "server": "nodemon ./src/server.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
-  },
-  "proxy": "https://cryptic-cliffs-20040.herokuapp.com:5000/"
+    "eject": "react-scripts eject"
+  }
 }

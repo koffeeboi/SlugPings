@@ -16,7 +16,7 @@ class Root extends Component {
   }
 
   callApi = async () => {
-    const response = await fetch('/api/hello');
+    const response = await fetch('https://fierce-hamlet-12953.herokuapp.com/api/hello', {mode: 'cors'});
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
