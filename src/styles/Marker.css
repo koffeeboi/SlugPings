@@ -1,0 +1,46 @@
+.marker {
+  position: relative;
+  color: white;
+  background: white;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  top: -20px;
+  left: -20px;
+  border: solid rgba(0, 0, 0, 0.5) 1px;
+}
+
+.marker-text {
+  position: absolute;
+  left: -10px;
+  bottom: 35px;
+  background-color: lightgreen;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.marker-text:after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid lightgreen;
+  bottom: -10px;
+  left: 10px;
+}
+
+/* .marker-text:after {
+  position: absolute;
+  display: block;
+  content: "";  
+  border-color: lightgreen transparent transparent;
+  border-style: solid;
+  border-width: 10px;
+  height:0;
+  width:0;
+  bottom:-19px;
+  left:1em;
+} */

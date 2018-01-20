@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import "../styles/Marker.css";
+
 class Marker extends Component {
   constructor(props) {
     super(props);
@@ -10,21 +12,19 @@ class Marker extends Component {
   _onClick() {
   }
 
+
+
   render() {
     const { text } = this.props;
     return (
       <div
         className="marker"
-        style={{
-          position: 'relative',
-          color: 'white',
-          background: 'red',
-          height: 40,
-          width: 60,
-          top: -20,
-          left: -30,
-        }}>
-        {text}
+      >
+        <div
+          className="marker-text"
+        >
+          {text}
+        </div>
       </div>
     );
   }
