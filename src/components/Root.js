@@ -5,14 +5,14 @@ import '../styles/App.css';
 import Button from "../components/Button";
 import GoogleMap from "../components/GoogleMap";
 
-class App extends Component {
+class Root extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="root">
         <GoogleMap />
       </div>
     );
   }
 }
 
-export default App;
+export default Root;
