@@ -4,6 +4,7 @@ import GoogleMapReact from 'google-map-react';
 import "../styles/GoogleMap.css";
 
 import Marker from "../components/Marker";
+import { postMarkerToServer } from "../utils/utils";
 
 const AnyReactComponent = ({ text }) => (
   <div style={{
@@ -35,6 +36,7 @@ class GoogleMap extends Component {
       event.target.focus();
     } else {
       pushMarker({ x, y, lat, lng });
+      postMarkerToServer({ x, y, lat, lng });
     }
   }
 
