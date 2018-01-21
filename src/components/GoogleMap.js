@@ -36,35 +36,46 @@ class GoogleMap extends Component {
     if (event.target.className.includes("marker-text")) {
       event.target.focus();
     } else {
-      pushMarker({ x, y, lat, lng });
-      postMarkerToServer({ x, y, lat, lng });
+      let id = (+new Date()).toString(36);
+      pushMarker({ id, x, y, lat, lng });
+      postMarkerToServer({ id, x, y, lat, lng });
     }
   }
 
   _genMarkers() {
-    const { map } = this.props;
+    const { map, updateMarkerText, postMarkerToServer } = this.props;
     return map.markers.map((marker, index) => {
       return (
         <Marker
           key={"marker-" + index}
+          id={marker.id}
           lat={marker.lat}
           lng={marker.lng}
+          map={map}
+          updateMarkerText={updateMarkerText}
         />
       )
     });
   }
 
   _genDBMarkers() {
-    const { map } = this.props;
-    
+    const { map, updateMarkerText } = this.props;
+
     if (map.db == null) return;
 
     return map.db.map((marker, index) => {
+      for (let m of map.markers) {
+        if (m.id == marker.id) return;
+      }
+
       return (
         <Marker
           key={"marker-" + index}
+          id={marker.id}
           lat={marker.lat}
           lng={marker.lng}
+          map={map}
+          updateMarkerText={updateMarkerText}
         />
       )
     });

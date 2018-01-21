@@ -3,12 +3,14 @@ import Draggable from 'react-draggable'; // The default
 
 import "../styles/Marker.css";
 
+import { postMarkerToServer } from "../utils/utils";
+
 class Marker extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      visible: false,
+      text: "",
     }
 
     this.onClick = this.onClick.bind(this);
@@ -19,8 +21,23 @@ class Marker extends Component {
   }
 
   componentDidUpdate() {
-    if (!this.state.visible) {
-      this.state.visble = true;
+    const { map, updateMarkerText, id } = this.props;
+    if (this.text && this.text.textContent != this.state.text) {
+      this.state.text = this.text.textContent;
+      updateMarkerText({ id, text: this.state.text });
+
+      for (let mark of map.markers) {
+        if (mark.id == id) {
+          postMarkerToServer({
+            id,
+            x: mark.x,
+            y: mark.y,
+            lat: mark.lat,
+            lng: mark.lng,
+            text: this.state.text
+          });
+        }
+      }
     }
   }
 
