@@ -26,7 +26,7 @@ const retrieveData = () => {
 
     console.log(body);
     for (let m of body) {
-      pushMarker(JSON.parse(m));
+      store.dispatch(pushMarker(JSON.parse(m)));
     }
   }, 2000);
 }
