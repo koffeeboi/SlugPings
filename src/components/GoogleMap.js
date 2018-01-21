@@ -26,6 +26,7 @@ class GoogleMap extends Component {
 
     this._onClick = this._onClick.bind(this);
     this._genMarkers = this._genMarkers.bind(this);
+    this._genDBMarkers = this._genDBMarkers.bind(this);
   }
 
   _onClick({ x, y, lat, lng, event }) {
@@ -53,6 +54,22 @@ class GoogleMap extends Component {
     });
   }
 
+  _genDBMarkers() {
+    const { map } = this.props;
+    
+    if (map.db == null) return;
+
+    return map.db.map((marker, index) => {
+      return (
+        <Marker
+          key={"marker-" + index}
+          lat={marker.lat}
+          lng={marker.lng}
+        />
+      )
+    });
+  }
+
   render() {
     return (
       <div className="map-container">
@@ -68,6 +85,7 @@ class GoogleMap extends Component {
           onClick={this._onClick}
         >
           {this._genMarkers()}
+          {this._genDBMarkers()}
         </GoogleMapReact>
       </div>
     );

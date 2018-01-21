@@ -10,12 +10,10 @@ export const postMarkerToServer = async ({ x, y, lat, lng }) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      marker: {
-        x: x,
-        y: y,
-        lat: lat,
-        lng: lng,
-      },
+      x: x,
+      y: y,
+      lat: lat,
+      lng: lng,
     })
   })
 

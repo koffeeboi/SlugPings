@@ -12,7 +12,8 @@ const initialState = {
     y: 5,
     lat: 12,
     lng: 30,
-  }]
+  }],
+  db: null,
 };
 
 const map = (state = initialState, action) => {
@@ -31,6 +32,13 @@ const map = (state = initialState, action) => {
           ...state.markers,
           action.payload,
         ],
+      };
+    }
+
+    case (types.MAP_SET_FROM_DB): {
+      return {
+        ...state,
+        db: action.payload,
       };
     }
 

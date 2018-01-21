@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import './styles/index.css';
 
 import configureStore from './store/configureStore';
-import { pushMarker } from "./actions/GoogleMapActions";
+import { setDBMarkers } from "./actions/GoogleMapActions";
 import RootContainer from "./containers/RootContainer";
 import Root from './components/Root';
 
@@ -25,9 +25,11 @@ const retrieveData = () => {
     if (response.status !== 200) throw Error(body.message);
 
     console.log(body);
+    let array = [];
     for (let m of body) {
-      store.dispatch(pushMarker(JSON.parse(m)));
+      array.push(JSON.parse(m));
     }
+    store.dispatch(setDBMarkers(array));
   }, 2000);
 }
 retrieveData();

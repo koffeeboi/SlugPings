@@ -19,3 +19,8 @@ export const pushMarker = ({ x, y, lat, lng }) => ({
         lng: lng,
     }
 });
+
+export const setDBMarkers = (arrayOfObjects) => ({
+    type: types.MAP_SET_FROM_DB,
+    payload: arrayOfObjects
+});
