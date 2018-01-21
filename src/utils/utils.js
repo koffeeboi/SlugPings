@@ -1,5 +1,5 @@
-// const POST_URL = "https://fierce-hamlet-12953.herokuapp.com/api/marker";
-const POST_URL = "http://192.168.1.134:2000/api/marker";
+const POST_URL = "https://fierce-hamlet-12953.herokuapp.com/api/marker";
+//const POST_URL = "http://192.168.1.134:2000/api/marker";
 
 export const postMarkerToServer = async ({ x, y, lat, lng }) => {
   const response = await fetch(POST_URL, {
