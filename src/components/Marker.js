@@ -92,6 +92,7 @@ class Marker extends Component {
             onClick={this._onTextClick}
             ref={(input) => { this.text = input }}
           >
+            {this.props.text ? this.props.text : this.state.text}
           </div>
         </div>
       </Draggable>

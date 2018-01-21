@@ -52,6 +52,7 @@ class GoogleMap extends Component {
           lat={marker.lat}
           lng={marker.lng}
           map={map}
+          text={marker.text}
           updateMarkerText={updateMarkerText}
         />
       )
@@ -75,6 +76,7 @@ class GoogleMap extends Component {
           lat={marker.lat}
           lng={marker.lng}
           map={map}
+          text={marker.text}
           updateMarkerText={updateMarkerText}
         />
       )
