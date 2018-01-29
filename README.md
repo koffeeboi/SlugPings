@@ -1,7 +1,13 @@
 # SlugPings
 A live, interactive map where users place markers to ping an event occuring on campus.
 
-Two main source directories: SlugPings (https://github.com/hueyjj/SlugPings) and SlugPingsDatabase (https://github.com/hueyjj/SlugPingsDatabase)
+Live demo: https://slugpings.herokuapp.com/
+
+
+Two main source directories: 
+
+    SlugPings (https://github.com/hueyjj/SlugPings)
+    SlugPingsDatabase (https://github.com/hueyjj/SlugPingsDatabase)
 
 Both directories will be served on Heroku. The reason is because Heroku (free users at least) cannot use more than one port on one Heroku server.
 
