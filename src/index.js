@@ -19,7 +19,7 @@ ReactDOM.render(
 
 const retrieveData = () => {
   setInterval(async () => {
-    const response = await fetch('https://fierce-hamlet-12953.herokuapp.com/api/storage', {mode: 'cors'});
+    const response = await fetch('https://slugpings.herokuapp.com/api/storage', {mode: 'cors'});
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
