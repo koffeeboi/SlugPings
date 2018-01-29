@@ -1,0 +1,36 @@
+.marker {
+  position: relative;
+  color: white;
+  background: white;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  top: -20px;
+  left: -20px;
+  border: solid rgba(0, 0, 0, 0.5) 1px;
+}
+
+.marker-text {
+  min-width: 50px;
+  min-height: 10px;
+  position: absolute;
+  left: -10px;
+  bottom: 35px;
+  background-color: lightblue;
+  border: solid rgba(0, 0, 0, 0.5) 1px;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.marker-text:after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid lightblue;
+  bottom: -10px;
+  left: 10px;
+}
