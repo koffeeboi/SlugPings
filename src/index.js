@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import Popup from 'react-popup';
 
 import './styles/index.css';
 
@@ -14,8 +13,6 @@ let store = configureStore();
 ReactDOM.render(
   <Provider store={store}>
     <RootContainer />
-  <Popup />
-  , document.getElementById('popupContainer')
   </Provider>
   , document.getElementById('root')
 );
