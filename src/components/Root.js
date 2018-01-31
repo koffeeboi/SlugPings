@@ -9,8 +9,7 @@ class Root extends Component {
     return (
       <div className="root">
         <GoogleMapContainer />
-        //<button id="open-form" onClick={()=>{console.log('oop')}}>open form</button>
-        <button onClick={this.props.closePopup}>close me</button>
+        <button id="open-form" onClick={()=>{console.log('oop')}}>open form</button>
       </div>
     );
   }
