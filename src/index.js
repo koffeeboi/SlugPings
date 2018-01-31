@@ -13,6 +13,8 @@ let store = configureStore();
 ReactDOM.render(
   <Provider store={store}>
     <RootContainer />
+  <Popup />
+  , document.getElementById('popupContainer')
   </Provider>
   , document.getElementById('root')
 );
