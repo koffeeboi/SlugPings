@@ -3,38 +3,11 @@ A live, interactive map where users place markers to ping an event occuring on c
 
 Live demo: https://slugpings.herokuapp.com/
 
-
-Two main source directories: 
-
-    SlugPings (https://github.com/hueyjj/SlugPings)
-    SlugPingsDatabase (https://github.com/hueyjj/SlugPingsDatabase)
-
-Both directories will be served on Heroku. The reason is because Heroku (free users at least) cannot use more than one port on one Heroku server.
-
-Example
-
-    our-heroku-name.herokuapps.com/
-    our-heroku-name.herokuapps.com:1245/
-We cannot use port 1245.
-
-Our workaround will be to use one heroku server to serve our website front-end. This will also include some back-end logic.
-And we will use one other heroku server to handle our database. The database we will use is redis (https://redis.io/).
-
-## Setting up SlugPings (1/)
+## Setting up SlugPings
 ```bash
-cd SlugPings_DIR
 git clone https://github.com/hueyjj/SlugPings
 
 cd SlugPings
-npm install
-```
-
-## Setting up SlugPingsDatabase
-```bash
-cd SlugPingsDatabase_DIR
-git clone https://github.com/hueyjj/SlugPingsDatabase
-
-cd SlugPingsDatabase
 npm install
 ```
 
@@ -54,6 +27,60 @@ heroku --version
 
 ## Running
 ```bash
-cd SlugPings_DIR
+cd SlugPings
 heroku local web
 ```
+
+## Technology Stack
+- MongoDB - back-end database
+- ExpressJs - back-end framework
+- React + Redux - front-end framework
+- NodeJS - back-end written on NodeJs engine
+
+## APIs
+- LeafletJS - OpenStreetMap library
+
+## Development
+Ideally, we want everyone to work in the `dev` branch. So everyone working directly in the `dev` branch is perfectly fine. But this can cause a lot of merge conflicts if we are all pushing and pulling frequently.
+
+Another option would be to branch from the `dev` branch and work in your own branch. However, this means that you will have to pull from the `dev` branch often to get the latest changes. 
+
+When you are done with some work in your own branch, merge your changes back to the `dev` branch. Resolve any merge conflict and related problems.
+
+There will be a `master` branch that will always have a working release. Only the owner of the repository will merge the changes from the `dev` branch to the `master` branch.
+
+Clone the repository
+```bash
+git clone https://github.com/hueyjj/SlugPings
+```
+
+Check what branches exist
+```bash
+git branch -a
+```
+
+You should see something like
+
+```bash
+huey@huey-Aspire-E5-571:~/github/SlugPings$ git branch -a
+* master
+  remotes/github/dev
+  remotes/github/form
+  remotes/github/master
+```
+
+If you do not see the master branch nor the dev branch, contact that owner of the repository. Examples of `dev` and `master` branches.
+```bash
+  remotes/github/dev
+  remotes/github/master
+```
+This is an example of a branch that was branched from the `dev` branch
+
+```bash
+  remotes/github/form
+```
+
+
+
+## Verify branching with Github
+`https://github.com/hueyjj/SlugPings/network`
