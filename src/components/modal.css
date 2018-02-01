@@ -17,6 +17,7 @@
     padding: 2px 16px;
     background-color: #5cb85c;
     color: white;
+    text-align: center;
 }
 
 /* Modal Body */
@@ -27,6 +28,7 @@
     padding: 2px 16px;
     background-color: #5cb85c;
     color: white;
+    text-align: right;
 }
 
 /* Modal Content */
