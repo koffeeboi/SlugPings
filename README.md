@@ -86,6 +86,14 @@ git checkout -b NAME_OF_YOUR_BRANCH dev
 ```
 Then commit to that branch and the changes and branches will be visible on Github.
 
+Push to your own branch
+```bash
+git push NAME_OF_REMOTE YOUR_BRANCH_NAME
+```
+For example, mine would look like:
+```bash
+git push github dev-huey
+```
 
 ## Verify branching with Github
 `https://github.com/hueyjj/SlugPings/network`
