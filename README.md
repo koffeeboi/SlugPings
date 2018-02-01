@@ -69,7 +69,7 @@ huey@huey-Aspire-E5-571:~/github/SlugPings$ git branch -a
   remotes/github/master
 ```
 
-If you do not see the master branch nor the dev branch, contact the owner of the repository. Examples of `dev` and `master` branches.
+If you do not see the master branch nor the dev branch, contact the owner of the repository. Examples of `dev` and `master` branches. It may look different. Do not worry.
 ```bash
   remotes/github/dev
   remotes/github/master
