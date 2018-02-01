@@ -69,7 +69,7 @@ huey@huey-Aspire-E5-571:~/github/SlugPings$ git branch -a
   remotes/github/master
 ```
 
-If you do not see the master branch nor the dev branch, contact that owner of the repository. Examples of `dev` and `master` branches.
+If you do not see the master branch nor the dev branch, contact the owner of the repository. Examples of `dev` and `master` branches.
 ```bash
   remotes/github/dev
   remotes/github/master
@@ -80,6 +80,11 @@ This is an example of a branch that was branched from the `dev` branch
   remotes/github/form
 ```
 
+Create your own branch
+```bash
+git checkout -b NAME_OF_YOUR_BRANCH dev
+```
+Then commit to that branch and the changes and branches will be visible on Github.
 
 
 ## Verify branching with Github
