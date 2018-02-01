@@ -26,6 +26,7 @@ class Root extends Component {
 			    <h2>Event Name</h2>
 			  </div>
 			  <div class="modal-body">
+			  <input type="text" class="form-control"  id="addHousemate" placeholder="Housemate's Name">
 			    <p>TEST</p>
 			  </div>
 			  <div class="modal-footer">
