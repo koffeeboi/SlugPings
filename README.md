@@ -29,15 +29,6 @@ cd SlugPings
 npm install
 ```
 
-## Setting up SlugPingsDatabase
-```bash
-cd SlugPingsDatabase_DIR
-git clone https://github.com/hueyjj/SlugPingsDatabase
-
-cd SlugPingsDatabase
-npm install
-```
-
 ## Set up Heroku (command line interface)
 - Go to https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up
 - Click on the dropdown arrow next to "Download the Heroku CLI for..."
