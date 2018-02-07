@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MERN Test</title>
+
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` in this folder.
+      To create a production bundle, use `npm run build`.
+    -->
+
+
+
+    <h3>Map</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var sc = {lat: 36.9915, lng: -122.0583};
+        var marker2co = {lat: 36.9643, lng: -122.0189};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: sc
+        });
+        var marker = new google.maps.Marker({
+          position: sc,
+          map: map
+        });
+        var marker2 = new google.maps.Marker({
+          position: marker2co,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZD0pfnBehXu_uRJWYdD6jKO_chsCYF7I&callback=initMap">
+    </script>
+  
+
+
+
+  </body>
+</html>
