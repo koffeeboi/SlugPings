@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import LeaftletMap from '../components/LeafletMap';
+import LeafletMap from '../components/LeafletMap';
 
 import { setCurrLoc, pushMarker, updateMarkerText  } from "../actions/LeafletMapActions";
 

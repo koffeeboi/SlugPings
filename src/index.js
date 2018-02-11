@@ -32,4 +32,4 @@ const retrieveData = () => {
     store.dispatch(setDBMarkers(array));
   }, 2000);
 }
-retrieveData();
+// retrieveData();
