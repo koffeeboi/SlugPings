@@ -1,53 +1,55 @@
 {
-    "name": "slug-pings",
-    "description": "Live, active map that you can ping with a notice/something going on campus plus a mini post listing with discussion attached and chat",
-    "repository": "https://github.com/hueyjj/SlugPings",
-    "author": "hueyjj",
-    "contributors": [
-      {
-        "name": "vincentwu96",
-        "github": "https://github.com/vincent96"
-      },
-      {
-        "name": "uklelai",
-        "github": "https://github.com/uklelai"
-      },
-      {
-        "name": "PrabhmeetGill",
-        "github": "https://github.com/PrabhmeetGill"
-      },
-      {
-        "name": "maazas",
-        "github": "https://github.com/maazas"
-      },
-      {
-        "name": "aahchn",
-        "github": "https://github.com/aahchn"
-      }
-    ],
-    "version": "0.1.0",
-    "private": true,
-    "dependencies": {
-      "concurrently": "^3.5.1",
-      "express": "^4.16.2",
-      "google-map-react": "^0.28.0",
-      "nodemon": "^1.14.11",
-      "react": "^16.2.0",
-      "react-dom": "^16.2.0",
-      "react-draggable": "^3.0.5",
-      "react-popup": "^0.9.2",
-      "react-redux": "^5.0.6",
-      "react-router-dom": "^4.2.2",
-      "react-scripts": "1.1.0",
-      "redis": "^2.8.0",
-      "redux": "^3.7.2",
-      "redux-logger": "^3.0.6",
-      "redux-thunk": "^2.2.0"
+  "name": "slug-pings",
+  "description": "Live, active map that you can ping with a notice/something going on campus plus a mini post listing with discussion attached and chat",
+  "repository": "https://github.com/hueyjj/SlugPings",
+  "author": "hueyjj",
+  "contributors": [
+    {
+      "name": "vincentwu96",
+      "github": "https://github.com/vincent96"
     },
-    "scripts": {
-      "start": "react-scripts start",
-      "build": "react-scripts build",
-      "test": "react-scripts test --env=jsdom",
-      "eject": "react-scripts eject"
+    {
+      "name": "uklelai",
+      "github": "https://github.com/uklelai"
+    },
+    {
+      "name": "PrabhmeetGill",
+      "github": "https://github.com/PrabhmeetGill"
+    },
+    {
+      "name": "maazas",
+      "github": "https://github.com/maazas"
+    },
+    {
+      "name": "aahchn",
+      "github": "https://github.com/aahchn"
     }
+  ],
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "concurrently": "^3.5.1",
+    "express": "^4.16.2",
+    "google-map-react": "^0.28.0",
+    "leaflet": "^1.3.1",
+    "nodemon": "^1.14.11",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-draggable": "^3.0.5",
+    "react-leaflet": "^1.8.0",
+    "react-popup": "^0.9.2",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.0",
+    "redis": "^2.8.0",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
+}
