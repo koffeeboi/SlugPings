@@ -11,3 +11,6 @@ Dockerfile
 docker-compose.yml
 
 temp/
+
+# For this project, ignore these filess
+package-lock.json
