@@ -10,6 +10,7 @@ class Root extends Component {
 	render() {
 		return (
 			<div className="root">
+				<LeafletMapContainer />
 			</div>
 		);
 	}
