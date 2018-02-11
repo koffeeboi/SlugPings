@@ -7,24 +7,10 @@ Live demo: https://slugpings.herokuapp.com/
 Two main source directories: 
 
     SlugPings (https://github.com/hueyjj/SlugPings)
-    SlugPingsDatabase (https://github.com/hueyjj/SlugPingsDatabase)
 
-Both directories will be served on Heroku. The reason is because Heroku (free users at least) cannot use more than one port on one Heroku server.
-
-Example
-
-    our-heroku-name.herokuapps.com/
-    our-heroku-name.herokuapps.com:1245/
-We cannot use port 1245.
-
-Our workaround will be to use one heroku server to serve our website front-end. This will also include some back-end logic.
-And we will use one other heroku server to handle our database. The database we will use is redis (https://redis.io/).
-
-## Setting up SlugPings (1/)
+## Setting up SlugPings
 ```bash
-cd SlugPings_DIR
 git clone https://github.com/hueyjj/SlugPings
-
 cd SlugPings
 npm install
 ```
@@ -45,6 +31,6 @@ heroku --version
 
 ## Running
 ```bash
-cd SlugPings_DIR
+cd SlugPings
 heroku local web
 ```
