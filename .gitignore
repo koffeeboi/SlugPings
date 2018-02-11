@@ -14,3 +14,4 @@ temp/
 
 # For this project, ignore these filess
 package-lock.json
+desktop.ini
