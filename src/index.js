@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import './styles/index.css';
 
 import configureStore from './store/configureStore';
-import { setDBMarkers } from "./actions/GoogleMapActions";
+import { setDBMarkers } from "./actions/LeafletMapActions";
 import RootContainer from "./containers/RootContainer";
 import Root from './components/Root';
 

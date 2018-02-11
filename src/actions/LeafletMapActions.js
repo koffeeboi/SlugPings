@@ -1,4 +1,4 @@
-import * as types from "../constants/GoogleMapConstants";
+import * as types from "../constants/LeafletMapConstants";
 
 export const setCurrLoc = ({ x, y, lat, lng }) => ({
     type: types.MAP_SET_CURR_LOC,

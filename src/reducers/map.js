@@ -1,4 +1,4 @@
-import * as types from "../constants/GoogleMapConstants";
+import * as types from "../constants/LeafletMapConstants";
 
 const initialState = {
   currentLocClicked: {
