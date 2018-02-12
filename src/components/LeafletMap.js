@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Map, Marker, Popup, TileLayer, ZoomControl } from 'react-leaflet'
+import { Map, Marker, Popup, TileLayer, ZoomControl, Tooltip } from 'react-leaflet'
 
 import "../styles/LeafletMap.css";
 
@@ -56,6 +56,11 @@ class LeafletMap extends Component {
               </div>
             </div>
           </Popup>
+          <Tooltip>
+            <div>
+              {title}
+            </div>
+          </Tooltip>
         </Marker>
       );
     });
