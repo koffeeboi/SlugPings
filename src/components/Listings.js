@@ -34,7 +34,6 @@ class Listings extends Component {
       )
     });
     return events;
-
   }
 
   render() {
