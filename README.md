@@ -41,4 +41,8 @@ heroku local web
 - NodeJS - back-end written on NodeJs engine
 
 ## APIs
-- LeafletJS - OpenStreetMap library
+- LeafletJS - OpenStreetMap wrapper library
+
+## Libraries
+- Font Awesome
+- Bootstrap
