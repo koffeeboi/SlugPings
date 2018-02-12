@@ -17,19 +17,19 @@ ReactDOM.render(
   , document.getElementById('root')
 );
 
-const retrieveData = () => {
-  setInterval(async () => {
-    const response = await fetch('https://slugpings-database.herokuapp.com/api/storage', {mode: 'cors'});
-    const body = await response.json();
+// const retrieveData = () => {
+//   setInterval(async () => {
+//     const response = await fetch('https://slugpings-database.herokuapp.com/api/storage', {mode: 'cors'});
+//     const body = await response.json();
 
-    if (response.status !== 200) throw Error(body.message);
+//     if (response.status !== 200) throw Error(body.message);
 
-    console.log(body);
-    let array = [];
-    for (let m of body) {
-      array.push(JSON.parse(m));
-    }
-    store.dispatch(setDBMarkers(array));
-  }, 2000);
-}
+//     console.log(body);
+//     let array = [];
+//     for (let m of body) {
+//       array.push(JSON.parse(m));
+//     }
+//     store.dispatch(setDBMarkers(array));
+//   }, 2000);
+// }
 // retrieveData();
