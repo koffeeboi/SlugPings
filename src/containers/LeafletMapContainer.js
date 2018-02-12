@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import LeafletMap from '../components/LeafletMap';
 
-import { addMarker } from "../actions/LeafletMapActions";
+import { showMarkerModal, hideMarkerModal, addMarker } from "../actions/LeafletMapActions";
 
 const LeafletMapContainer = props => <LeafletMap {...props} />;
 
@@ -16,6 +16,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
+  showMarkerModal,
+  hideMarkerModal,
   addMarker,
 };
 
