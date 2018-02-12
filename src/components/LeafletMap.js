@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
+import { Map, Marker, Popup, TileLayer, ZoomControl } from 'react-leaflet'
 
 import "../styles/LeafletMap.css";
 
@@ -28,7 +28,7 @@ class LeafletMap extends Component {
   _getMarkers() {
     const { map } = this.props;
     const markers = map.markers;
-    return markers.map(({ lat, lng, title, loc, startTime, endTime, moreInfo}, index) => {
+    return markers.map(({ lat, lng, title, loc, startTime, endTime, moreInfo }, index) => {
       return (
         <Marker position={{ lat: lat, lng: lng }} key={`${lat}-${lng}-${index}`} >
           <Popup>
@@ -64,7 +64,9 @@ class LeafletMap extends Component {
           center={this.state.latlng}
           zoom={16}
           onClick={this._onClick}
+          zoomControl={false}
         >
+          <ZoomControl position="topright" />
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
