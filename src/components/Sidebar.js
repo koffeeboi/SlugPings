@@ -9,6 +9,7 @@ class Sidebar extends Component {
     this._onHide = this._onHide.bind(this);
     this._onShow = this._onShow.bind(this);
     this._onListings = this._onListings.bind(this);
+    this._onChat = this._onChat.bind(this);
   }
 
   _onHide() {
@@ -25,6 +26,12 @@ class Sidebar extends Component {
     e.stopPropagation();
     const { showListings } = this.props;
     showListings();
+  }
+
+  _onChat(e) {
+    e.stopPropagation();
+    const { showChat } = this.props;
+    showChat();
   }
 
   render() {
@@ -57,7 +64,10 @@ class Sidebar extends Component {
             <i className="fas fa-file-alt fa-2x"></i>
             <span>Listings</span>
           </div>
-          <div className="sb-item">
+          <div
+            className="sb-item"
+            onClick={this._onChat}
+          >
             <i className="fas fa-comments fa-2x"></i>
             <span>Chat</span>
           </div>

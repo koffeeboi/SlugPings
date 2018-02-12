@@ -3,6 +3,7 @@ import '../styles/App.css';
 
 import SidebarContainer from "../containers/SidebarContainer";
 import ListingsContainer from "../containers/ListingsContainer";
+import ChatContainer from "../containers/ChatContainer";
 import LeafletMapContainer from "../containers/LeafletMapContainer";
 
 class Root extends Component {
@@ -11,6 +12,7 @@ class Root extends Component {
 			<div className="root">
 				<SidebarContainer />
 				<ListingsContainer />
+				<ChatContainer />
 				<LeafletMapContainer />
 			</div>
 		);
