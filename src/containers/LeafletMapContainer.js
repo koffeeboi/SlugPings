@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import LeafletMap from '../components/LeafletMap';
 
-import { setCurrLoc, pushMarker, updateMarkerText  } from "../actions/LeafletMapActions";
+import { addMarker } from "../actions/LeafletMapActions";
 
 const LeafletMapContainer = props => <LeafletMap {...props} />;
 
@@ -16,9 +16,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-    setCurrLoc,
-    pushMarker,
-    updateMarkerText,
+  addMarker,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LeafletMapContainer);
