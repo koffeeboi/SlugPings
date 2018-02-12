@@ -17,6 +17,7 @@ class LeafletMap extends Component {
     }
 
     this._onClick = this._onClick.bind(this);
+    this._onCog = this._onCog.bind(this);
   }
 
   _onClick(e) {
@@ -25,12 +26,19 @@ class LeafletMap extends Component {
     showMarkerModal();
   }
 
+  _onCog(e) {
+    e.stopPropagation();
+    const { showMarkerModal } = this.props;
+    // TODO fix later, should be editMarkerModal
+    showMarkerModal();
+  }
+
   _getMarkers() {
     const { map } = this.props;
     const markers = map.markers;
     return markers.map(({ lat, lng, title, loc, startTime, endTime, moreInfo }, index) => {
       return (
-        <Marker position={{ lat: lat, lng: lng }} key={`${lat}-${lng}-${index}`} >
+        <Marker position={{ lat: lat, lng: lng }} key={`${lat}-${lng}-${index}`}>
           <Popup>
             <div>
               <span>{title}</span>
@@ -40,8 +48,13 @@ class LeafletMap extends Component {
               <span>Start: {startTime} End: {endTime}</span>
               <br />
               <span>{moreInfo}</span>
+              <br />
+              <div
+                className="marker-options"
+                onClick={this._onCog} >
+                <i className="fas fa-cog fa-2x"></i>
+              </div>
             </div>
-
           </Popup>
         </Marker>
       );
