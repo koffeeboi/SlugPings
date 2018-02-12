@@ -1,6 +1,7 @@
 import * as types from "../constants/LeafletMapConstants";
 
 const initialState = {
+  isMarkerModalOpen: false,
   markers: [
     {
       lat: 36.99694,
@@ -11,8 +12,21 @@ const initialState = {
 
 const map = (state = initialState, action) => {
   switch (action.type) {
+    case (types.MAP_SHOW_MARKER_MODAL): {
+      return {
+        ...state,
+        isMarkerModalOpen: true,
+      }
+    }
+    
+    case (types.MAP_HIDE_MARKER_MODAL): {
+      return {
+        ...state,
+        isMarkerModalOpen: false,
+      }
+    }
+
     case (types.MAP_ADD_MARKER): {
-      console.log(state.markers);
       return {
         ...state,
         markers: [...state.markers, action.payload],
