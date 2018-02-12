@@ -20,20 +20,45 @@ class LeafletMap extends Component {
   }
 
   _onClick(e) {
-    const { showMarkerModal, addMarker } = this.props;
+    const { showMarkerModal, setLastLoc } = this.props;
+    setLastLoc(e.latlng);
     showMarkerModal();
-    addMarker(e.latlng);
+  }
+
+  _getMarkers() {
+    const { map } = this.props;
+    const markers = map.markers;
+    return markers.map(({ lat, lng, title, loc, startTime, endTime, moreInfo}, index) => {
+      return (
+        <Marker position={{ lat: lat, lng: lng }} key={`${lat}-${lng}-${index}`} >
+          <Popup>
+            <div>
+              <span>{title}</span>
+              <br />
+              <span>{loc}</span>
+              <br />
+              <span>Start: {startTime} End: {endTime}</span>
+              <br />
+              <span>{moreInfo}</span>
+            </div>
+
+          </Popup>
+        </Marker>
+      );
+    });
   }
 
   render() {
-    const { map, hideMarkerModal } = this.props;
-    const { isMarkerModalOpen } = map;
+    const { map, hideMarkerModal, addMarker } = this.props;
+    const { isMarkerModalOpen, lastLoc } = map;
 
     return (
       <div className="map-container">
         <MarkerModal
           isMarkerModalOpen={isMarkerModalOpen}
           hideMarkerModal={hideMarkerModal}
+          addMarker={addMarker}
+          lastLoc={lastLoc}
         />
         <Map
           center={this.state.latlng}
@@ -44,11 +69,7 @@ class LeafletMap extends Component {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
           />
-          <Marker position={this.state.latlng}>
-            <Popup>
-              <span>A pretty CSS3 popup.<br />Easily customizable.</span>
-            </Popup>
-          </Marker>
+          {this._getMarkers()}
         </Map>
       </div>
     );

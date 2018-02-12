@@ -6,7 +6,16 @@ class MarkerModal extends Component {
   constructor(props) {
     super(props);
 
+
+    this.title = null;
+    this.loc = null;
+    this.startTime = null;
+    this.endTime = null;
+    this.moreInfo = null;
+
+
     this._onClose = this._onClose.bind(this);
+    this._onSave = this._onSave.bind(this);
   }
 
   componentsDidMount() {
@@ -18,15 +27,41 @@ class MarkerModal extends Component {
     hideMarkerModal();
   }
 
+  _onSave(e) {
+    e.stopPropagation();
+    const { lastLoc, addMarker, hideMarkerModal } = this.props;
+
+    addMarker({
+      lat: lastLoc.lat,
+      lng: lastLoc.lng,
+      title: this.title.value,
+      loc: this.loc.value,
+      startTime: this.startTime.value,
+      endTime: this.endTime.value,
+      moreInfo: this.moreInfo.value,
+    })
+
+    // Clean up input
+    this.setState({
+      title: { ...this.title, value: "" },
+      loc: { ...this.loc, value: "" },
+      startTime: { ...this.startTime, value: "" },
+      endTime: { ...this.endTime, value: "" },
+      moreInfo: { ...this.moreInfo, value: "" },
+    })
+    // Close modal
+    hideMarkerModal();
+  }
+
   render() {
-    const { isMarkerModalOpen, hideMarkerModal } = this.props;
+    const { isMarkerModalOpen } = this.props;
 
     return !isMarkerModalOpen ? null
-      : (
+      :
+      (
         <div
           id="myModal"
           className="modal"
-          ref={(input) => { this.modal = input }}
         >
           <div className="modal-content">
             <div className="modal-header">
@@ -45,6 +80,7 @@ class MarkerModal extends Component {
                   className="form-input"
                   id="addTitle"
                   placeholder="Title"
+                  ref={(input) => { this.title = input }}
                 />
               </div>
               <div className="input-container">
@@ -53,6 +89,7 @@ class MarkerModal extends Component {
                   className="form-input"
                   id="addLocation"
                   placeholder="Location"
+                  ref={(input) => { this.loc = input }}
                 />
               </div>
               <div className="input-container">
@@ -61,6 +98,7 @@ class MarkerModal extends Component {
                   className="form-input"
                   id="addStartTime"
                   placeholder="Start Time"
+                  ref={(input) => { this.startTime = input }}
                 />
               </div>
               <div className="input-container">
@@ -69,17 +107,20 @@ class MarkerModal extends Component {
                   className="form-input"
                   id="addEndTime"
                   placeholder="End Time"
+                  ref={(input) => { this.endTime = input }}
                 />
               </div>
               <div className="input-container">
                 <textarea
                   className="form-input-paragraph"
                   placeholder="Additional information"
+                  ref={(input) => { this.moreInfo = input }}
                 />
               </div>
               <div className="input-container">
                 <button
                   className="button-save"
+                  onClick={this._onSave}
                 >
                   Save
                 </button>
