@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../styles/App.css';
 
 import SidebarContainer from "../containers/SidebarContainer";
+import ListingsContainer from "../containers/ListingsContainer";
 import LeafletMapContainer from "../containers/LeafletMapContainer";
 
 class Root extends Component {
@@ -9,6 +10,7 @@ class Root extends Component {
 		return (
 			<div className="root">
 				<SidebarContainer />
+				<ListingsContainer />
 				<LeafletMapContainer />
 			</div>
 		);
