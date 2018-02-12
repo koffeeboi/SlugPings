@@ -44,9 +44,11 @@ class Sidebar extends Component {
             </span >
           </div >
           <div className="sb-item">
+            <i class="fas fa-file-alt fa-2x"></i>
             <span>Listings</span>
           </div>
           <div className="sb-item">
+            <i class="fas fa-comments fa-2x"></i>
             <span>Chat</span>
           </div>
           <div className="support">
@@ -57,6 +59,7 @@ class Sidebar extends Component {
               <span>Sign up</span>
             </div>
             <div className="sp-item">
+              <i class="fas fa-question fa-2x"></i>
               <span>Help</span>
             </div>
           </div>

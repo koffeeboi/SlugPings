@@ -81,3 +81,9 @@
   border-bottom: 10px solid transparent;
   border-left: 10px solid white;
 }
+
+.fa-file-alt, .fa-comments, .fa-question {
+  position: relative;
+  right: 5px;
+  top: 5px;
+}
