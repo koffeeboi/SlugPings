@@ -1,63 +1,51 @@
-import * as types from "../constants/GoogleMapConstants";
+import * as types from "../constants/LeafletMapConstants";
 
 const initialState = {
-  currentLocClicked: {
-    x: 0,
-    y: 0,
-    lat: 0,
-    lng: 0,
+  isMarkerModalOpen: false,
+  markers: [
+    {
+      lat: 36.99694,
+      lng: -122.05954,
+      title: "Hi world!",
+      loc: "Rachel Carson",
+      startTime: "9:00 pm",
+      endTime: "10:00 pm",
+      moreInfo: "Bring snacks",
+    },
+  ],
+  lastLoc: {
+    lat: null,
+    lng: null,
   },
-  markers: [{
-    x: 5,
-    y: 5,
-    lat: 12,
-    lng: 30,
-    text: "",
-  }],
-  db: null,
 };
 
 const map = (state = initialState, action) => {
   switch (action.type) {
-    case (types.MAP_SET_CURR_LOC): {
+    case (types.MAP_SHOW_MARKER_MODAL): {
       return {
         ...state,
-        currentLocClicked: { ...action.payload },
-      };
-    }
-
-    case (types.MAP_PUSH_MARKER): {
-      return {
-        ...state,
-        markers: [
-          ...state.markers,
-          action.payload,
-        ],
-      };
-    }
-
-    case (types.MAP_UPDATE_TEXT): {
-      let j;
-      for (let i = 0; i < state.markers.length; i++) {
-        if (state.markers[i].id == action.payload.id){
-          j = i; break;
-        }
-      }
-
-      let d = state.markers.splice(j, 1)[0];
-      d.text = action.payload.text;
-      
-      state.markers.push(d);
-      return {
-        ...state,
-        markers: [...state.markers],
+        isMarkerModalOpen: true,
       }
     }
 
-    case (types.MAP_SET_FROM_DB): {
+    case (types.MAP_HIDE_MARKER_MODAL): {
       return {
         ...state,
-        db: action.payload,
+        isMarkerModalOpen: false,
+      }
+    }
+
+    case (types.MAP_ADD_MARKER): {
+      return {
+        ...state,
+        markers: [...state.markers, action.payload],
+      };
+    }
+
+    case (types.MAP_SET_LAST_LOC): {
+      return {
+        ...state,
+        lastLoc: action.payload,
       };
     }
 

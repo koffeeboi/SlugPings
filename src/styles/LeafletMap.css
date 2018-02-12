@@ -1,0 +1,19 @@
+.map-container {
+  height: 100%;
+  width: 100%;
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.marker-options {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.fa-cog:hover, .fa-cog:active {
+  color: skyblue;
+}
