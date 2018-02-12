@@ -34,6 +34,9 @@ cd SlugPings
 heroku local web
 ```
 
+## Backend
+- Heroku (in Node.js)
+
 ## Technology Stack
 - MongoDB - back-end database
 - ExpressJs - back-end framework
