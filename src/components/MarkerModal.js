@@ -39,34 +39,51 @@ class MarkerModal extends Component {
               <h2>Event Information</h2>
             </div>
             <div className="modal-body">
-              <input
-                type="text"
-                className="form-input"
-                id="addTitle"
-                placeholder="Title"
-              />
-              <input
-                type="text"
-                className="form-input"
-                id="addLocation"
-                placeholder="Location"
-              />
-              <input
-                type="text"
-                className="form-input"
-                id="addStartTime"
-                placeholder="Start Time"
-              />
-              <input
-                type="text"
-                className="form-input"
-                id="addEndTime"
-                placeholder="End Time"
-              />
-              <textarea
-                className="form-input-paragraph"
-                placeholder="Additional information"
-              />
+              <div className="input-container">
+                <input
+                  type="text"
+                  className="form-input"
+                  id="addTitle"
+                  placeholder="Title"
+                />
+              </div>
+              <div className="input-container">
+                <input
+                  type="text"
+                  className="form-input"
+                  id="addLocation"
+                  placeholder="Location"
+                />
+              </div>
+              <div className="input-container">
+                <input
+                  type="text"
+                  className="form-input"
+                  id="addStartTime"
+                  placeholder="Start Time"
+                />
+              </div>
+              <div className="input-container">
+                <input
+                  type="text"
+                  className="form-input"
+                  id="addEndTime"
+                  placeholder="End Time"
+                />
+              </div>
+              <div className="input-container">
+                <textarea
+                  className="form-input-paragraph"
+                  placeholder="Additional information"
+                />
+              </div>
+              <div className="input-container">
+                <button
+                  className="button-save"
+                >
+                  Save
+                </button>
+              </div>
             </div>
             <div className="modal-footer">
               <h3>Public or Private</h3>
