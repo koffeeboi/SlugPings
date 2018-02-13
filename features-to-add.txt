@@ -1,0 +1,4 @@
+Mapbox - can integrate with Leafletjs
+    - light/dark mode
+Ping shows animation like sonar pings
+    - time limit
