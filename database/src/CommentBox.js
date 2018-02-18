@@ -51,25 +51,25 @@ class CommentBox extends Component {
     this.loadCommentsFromServer();
     if (!this.pollInterval) {
       this.pollInterval = setInterval(this.loadCommentsFromServer, this.props.pollInterval)
-    } 
+    }
   }
   //when incorporating into another project
   //(with react-router for instance),
   //this will prevent error messages every 2 seconds
   //once the CommentBox is unmounted
   componentWillUnmount() {
-  this.pollInterval && clearInterval(this.pollInterval);
-  this.pollInterval = null;
-}
+    this.pollInterval && clearInterval(this.pollInterval);
+    this.pollInterval = null;
+  }
   render() {
     return (
-      <div style={ style.commentBox }>
-      <h2 style={ style.title }>Events:</h2>
-      <CommentList
-        onCommentDelete={ this.handleCommentDelete }
-        onCommentUpdate={ this.handleCommentUpdate }
-        data={ this.state.data }/>
-      <CommentForm onCommentSubmit={ this.handleCommentSubmit }/>
+      <div style={style.commentBox}>
+        <h2 style={style.title}>Events:</h2>
+        <CommentList
+          onCommentDelete={this.handleCommentDelete}
+          onCommentUpdate={this.handleCommentUpdate}
+          data={this.state.data} />
+        <CommentForm onCommentSubmit={this.handleCommentSubmit} />
       </div>
     )
   }

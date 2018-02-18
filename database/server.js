@@ -12,10 +12,13 @@ var router = express.Router();
 //set our port to either a predetermined port number if you have set it up, or 3001
 var port = process.env.API_PORT || 3001;
 
-var mongoDB = 'mongodb://183slugping:183slugping@ds121248.mlab.com:21248/183slugping';
-mongoose.connect(mongoDB, { useMongoClient: true })
+var mongoDB = 'mongodb://user:password@ds044907.mlab.com:44907/183slugpings';
+mongoose.connect(mongoDB);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once("open", () => {
+  console.log("databased connected to " + mongoDB);
+})
 
 //now we should configure the APi to use bodyParser and look for JSON data in the body
 app.use(bodyParser.urlencoded({ extended: true }));
