@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
+import "./database/server";
+
 import './styles/index.css';
 
 import configureStore from './store/configureStore';
