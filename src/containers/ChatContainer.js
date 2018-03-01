@@ -6,6 +6,9 @@ import Chat from '../components/Chat';
 import {
   showChat,
   hideChat,
+  showChatChannel,
+  hideChatChannel,
+  setChatChannelID,
 } from "../actions/ChatActions";
 
 const ChatContainer = props => <Chat {...props} />;
@@ -21,6 +24,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   showChat,
   hideChat,
+  showChatChannel,
+  hideChatChannel,
+  setChatChannelID,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChatContainer);
