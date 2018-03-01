@@ -23,7 +23,7 @@ class Chat extends Component {
   }
 
   _getHome() {
-    return(
+    return (
       <div className="chat-content">
         <span
           className="chat-close"
@@ -38,41 +38,39 @@ class Chat extends Component {
           {this._getEvents()}
         </div>
       </div>
-      )
-    
-  }
-
-  _getChannel(){
-    const { chat } = this.props;
- 
-
-    return(
-
-    < ChatChannel chat={chat}/>
     )
 
   }
 
-/* This function lists out the all of the chat channels*/
-  _getEvents() {
-     const { map, chat, showChatChannel, hideChatChannel, setChatChannelID } = this.props;
-     const { markers } = map; 
+  _getChannel() {
+    const { chat } = this.props;
 
-     let events = markers.map((marker, index) => {
-        let openChannel = () => {
-          setChatChannelID(marker.title);
-          showChatChannel();
-        }
-       return (
-         <div className="event" key={`${marker.title}`} onClick={openChannel}>
-           <span>
-             {marker.startTime} - {marker.endTime} {marker.title} @ {marker.loc}
-             <i className="fas fa-ellipsis-v fa-1x" />
-           </span>
-         </div>
-       )
-     });
-     return events;
+    return (
+      < ChatChannel chat={chat} />
+    )
+
+  }
+
+  /* This function lists out the all of the chat channels*/
+  _getEvents() {
+    const { map, chat, showChatChannel, hideChatChannel, setChatChannelID } = this.props;
+    const { markers } = map;
+
+    let events = markers.map((marker, index) => {
+      let openChannel = () => {
+        setChatChannelID(marker.title);
+        showChatChannel();
+      }
+      return (
+        <div className="event" key={`${marker.title}`} onClick={openChannel}>
+          <span>
+            {marker.startTime} - {marker.endTime} {marker.title} @ {marker.loc}
+            <i className="fas fa-ellipsis-v fa-1x" />
+          </span>
+        </div>
+      )
+    });
+    return events;
   }
 
   render() {
@@ -81,7 +79,7 @@ class Chat extends Component {
 
     return !isChatOpen ? null : (
       <div className="chat">
-        {isChannelOpen ? this._getChannel() : this._getHome() }
+        {isChannelOpen ? this._getChannel() : this._getHome()}
       </div>
     );
   }
