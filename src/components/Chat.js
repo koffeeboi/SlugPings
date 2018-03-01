@@ -20,18 +20,19 @@ class Chat extends Component {
   }
 
   _getEvents() {
-
-    // let events = markers.map((marker, index) => {
-    //   return (
-    //     <div className="event" key={`${marker.title}-${index}`}>
-    //       <span>
-    //         {marker.startTime} - {marker.endTime} {marker.title} @ {marker.loc}
-    //         <i className="fas fa-ellipsis-v fa-1x" />
-    //       </span>
-    //     </div>
-    //   )
-    // });
-    // return events;
+     const { map } = this.props;
+     const { markers } = map; 
+     let events = markers.map((marker, index) => {
+       return (
+         <div className="event" key={`${marker.title}-${index}`}>
+           <span>
+             {marker.startTime} - {marker.endTime} {marker.title} @ {marker.loc}
+             <i className="fas fa-ellipsis-v fa-1x" />
+           </span>
+         </div>
+       )
+     });
+     return events;
   }
 
   render() {
@@ -51,6 +52,7 @@ class Chat extends Component {
             <span>Chat</span>
           </div>
           <div className="chat-body">
+            {this._getEvents()}
           </div>
         </div>
       </div>
