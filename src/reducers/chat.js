@@ -3,6 +3,7 @@ import * as types from "../constants/ChatConstants";
 const initialState = {
   isChatOpen: false,
   isChannelOpen: false,
+  channelID: null,
 };
 
 const chat = (state = initialState, action) => {
@@ -34,6 +35,16 @@ const chat = (state = initialState, action) => {
         isChannelOpen: false,
       }      
     }
+
+    case (types.CHAT_SET_CHANNEL_ID):{
+      return{
+        ...state,
+        channelID: action.payload,
+      }      
+    }
+
+
+
 
     default:
       return state;
