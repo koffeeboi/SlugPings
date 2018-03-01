@@ -8,8 +8,6 @@ class ChatChannel extends Component {
   constructor(props) {
     super(props);
 
-    this._onClose = this._onClose.bind(this);
-    this._getEvents = this._getEvents.bind(this);
   }
 
   componentsDidMount() {
@@ -21,11 +19,15 @@ class ChatChannel extends Component {
 
 
   render() {
+   const { chat } = this.props;
 
 
     return  (
       <div className="chat">
-        poop
+       
+        <div className="chat-header">
+        <span>{chat.channelID}</span>
+        </div>
       </div>
     );
   }
