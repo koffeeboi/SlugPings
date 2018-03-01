@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import "../styles/Chat.css";
+import ChatChannel from "../components/ChatChannel";
 
 class Chat extends Component {
   constructor(props) {
@@ -8,6 +9,8 @@ class Chat extends Component {
 
     this._onClose = this._onClose.bind(this);
     this._getEvents = this._getEvents.bind(this);
+    this._getHome = this._getHome.bind(this);
+    this._getChannel = this._getChannel.bind(this);
   }
 
   componentsDidMount() {
@@ -17,6 +20,34 @@ class Chat extends Component {
     e.stopPropagation();
     const { hideChat } = this.props;
     hideChat();
+  }
+
+  _getHome() {
+    return(
+      <div className="chat-content">
+        <span
+          className="chat-close"
+          onClick={this._onClose}
+        >
+          &times;
+        </span>
+        <div className="chat-header">
+          <span>Chat</span>
+        </div>
+        <div className="chat-body">
+          {this._getEvents()}
+        </div>
+      </div>
+      )
+    
+  }
+
+  _getChannel(){
+    return(
+
+    < ChatChannel />
+    )
+
   }
 
 /* This function lists out the all of the chat channels*/
@@ -38,24 +69,11 @@ class Chat extends Component {
 
   render() {
     const { chat } = this.props;
-    const { isChatOpen } = chat;
+    const { isChatOpen, isChannelOpen } = chat;
 
     return !isChatOpen ? null : (
       <div className="chat">
-        <div className="chat-content">
-          <span
-            className="chat-close"
-            onClick={this._onClose}
-          >
-            &times;
-          </span>
-          <div className="chat-header">
-            <span>Chat</span>
-          </div>
-          <div className="chat-body">
-            {this._getEvents()}
-          </div>
-        </div>
+        {isChannelOpen ? this._getChannel() : this._getHome() }
       </div>
     );
   }
