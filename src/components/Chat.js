@@ -19,6 +19,7 @@ class Chat extends Component {
     hideChat();
   }
 
+/* This function lists out the all of the chat channels*/
   _getEvents() {
      const { map } = this.props;
      const { markers } = map; 
