@@ -11,10 +11,10 @@ import {
 const ChatContainer = props => <Chat {...props} />;
 
 const mapStateToProps = (state) => {
-  const { chat } = state;
+  const { chat, map } = state;
 
   return {
-    chat,
+    chat, map
   }
 };
 
