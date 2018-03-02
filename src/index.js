@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
+//import "./database/server";
+
 import './styles/index.css';
 
 import configureStore from './store/configureStore';
@@ -18,7 +20,7 @@ ReactDOM.render(
 // const retrieveData = () => {
 //   setInterval(async () => {
 //     const response = await fetch('https://slugpings-database.herokuapp.com/api/storage', {mode: 'cors'});
-//     const body = await response.json();
+//     const body = await response.json();ss
 
 //     if (response.status !== 200) throw Error(body.message);
 

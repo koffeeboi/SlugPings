@@ -7,3 +7,16 @@ export const showChat = () => ({
 export const hideChat = () => ({
   type: types.CHAT_HIDE
 })
+
+export const showChatChannel = () => ({
+  type: types.CHAT_CHANNEL_SHOW
+})
+
+export const hideChatChannel = () => ({
+  type: types.CHAT_CHANNEL_HIDE
+})
+
+export const setChatChannelID = (id) => ({
+  type: types.CHAT_SET_CHANNEL_ID,
+  payload: id,
+})
