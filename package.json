@@ -50,6 +50,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "dev": "nodemon backend/server.js",
+    "prod": "node backend/server.js",
     "server": "nodemon database/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
