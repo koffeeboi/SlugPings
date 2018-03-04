@@ -5,6 +5,8 @@ import LeafletMap from "../components/LeafletMap"
 import SidebarContainer from "../containers/SidebarContainer";
 import ListingsContainer from "../containers/ListingsContainer";
 import ChatContainer from "../containers/ChatContainer";
+import LoginContainer from "../containers/LoginContainer";
+import SignupContainer from "../containers/SignupContainer";
 import LeafletMapContainer from "../containers/LeafletMapContainer";
 
 class Root extends Component {
@@ -14,6 +16,8 @@ class Root extends Component {
 				<SidebarContainer />
 				<ListingsContainer />
 				<ChatContainer />
+				<LoginContainer />
+				<SignupContainer />
 				<LeafletMapContainer />
 			</div>
 		);
