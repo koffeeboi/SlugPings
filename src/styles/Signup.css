@@ -131,3 +131,7 @@ textarea:focus:-ms-input-placeholder {
   border: 1px solid #365899;
   border-radius: 2px;
 }
+
+.invalid {
+  border: 1px solid red;
+}

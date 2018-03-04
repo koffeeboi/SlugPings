@@ -6,6 +6,12 @@ class Signup extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      invalidEmail: false,
+      invalidPassword: false,
+      invalidVerifyPassword: false,
+    }
+
     this._onClose = this._onClose.bind(this);
     this._onSubmit = this._onSubmit.bind(this);
   }
@@ -16,6 +22,7 @@ class Signup extends Component {
   _onClose(e) {
     e.stopPropagation();
     const { hideSignup } = this.props;
+    this.setState({ invalidEmail: false, invalidPassword: false, invalidVerifyPassword: false });
     hideSignup();
   }
 
@@ -23,15 +30,19 @@ class Signup extends Component {
     e.stopPropagation();
     if (!this.email.value.endsWith("@ucsc.edu")) {
       console.log(`${this.email.value} does not end with @ucsc.edu`);
+      this.setState({ invalidEmail: true });
       e.preventDefault();
       return false;
     }
+    this.setState({ invalidEmail: false });
 
     if (this.password.value != this.verifyPassword.value) {
-      // console.log(`Passwords do not match: ${this.password.value} ${this.verifyPassword.value}`);s
+      console.log(`Passwords do not match: ${this.password.value} ${this.verifyPassword.value}`);
+      this.setState({ invalidPassword: true, invalidVerifyPassword: true });
       e.preventDefault();
       return false;
     }
+    this.setState({ invalidPassword: false, invalidVerifyPassword: false });
   }
 
   render() {
@@ -56,6 +67,7 @@ class Signup extends Component {
             <form id="SignupForm" action="http://localhost:3001" method="POST">
               <fieldset>
                 <input
+                  className={this.state.invalidEmail ? "invalid" : ""}
                   id="iEmail"
                   type="text"
                   name="email"
@@ -64,6 +76,7 @@ class Signup extends Component {
                 />
                 <br />
                 <input
+                  className={this.state.invalidPassword ? "invalid" : ""}
                   id="iPassword"
                   type="text"
                   name="password"
@@ -72,6 +85,7 @@ class Signup extends Component {
                 />
                 <br />
                 <input
+                  className={this.state.invalidVerifyPassword ? "invalid" : ""}
                   id="iVerifyPassword"
                   type="text"
                   name="verifyPassword"
@@ -82,39 +96,6 @@ class Signup extends Component {
               </fieldset>
               <input form="SignupForm" type="submit" onClick={this._onSubmit} />
             </form>
-            {/* <div className="input-container">
-              <input
-                type="text"
-                className="form-input"
-                id="addTitle"
-                placeholder="Title"
-                ref={(input) => { this.title = input }}
-              />
-            </div>
-            <input
-              type="text"
-              className="form-input"
-              id="addTitle"
-              placeholder="username"
-              ref={(input) => { this.title = input }}
-            />
-          </div> <div className="input-container">
-            <input
-              type="text"
-              className="form-input"
-              id="addTitle"
-              placeholder="password"
-              ref={(input) => { this.title = input }}
-            />
-          </div>
-          <div className="input-container">
-            <button
-              className="button-save"
-              onClick={this._onSave}
-            >
-              Save
-                </button>
-          </div> */}
           </div>
         </div>
       </div>
