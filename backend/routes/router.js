@@ -1,55 +1,49 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../models/user');
-
+var path = require('path');
+var User = require('../model/user');
 
 // GET route for reading data
-router.get('/', function (req, res, next) {
-  return res.sendFile(path.join(__dirname + '/templateLogReg/index.html'));
-});
+// router.get('/', function (req, res, next) {
+//   return res.sendFile(path.join(__dirname + '/../../build/'));
+// });
 
 //  //now  we can set the route path & initialize the API
 //  router.get('/', function (req, res) {
 //   res.json({ message: 'API Initialized!' });
 // });
 
-
 // app.get("*", (req, res) => {
 // });
-
 
 //POST route for updating data
 router.post('/', function (req, res, next) {
   // confirm that user typed same password twice
-  if (req.body.password !== req.body.passwordConf) {
+  if (req.body.password !== req.body.verifyPassword) {
+    console.log("Passwords do not match \n" + req.body.password + "\n" + req.body.verifyPassword);
     var err = new Error('Passwords do not match.');
     err.status = 400;
     res.send("passwords dont match");
     return next(err);
   }
-
-  if (req.body.email &&
-    req.body.username &&
-    req.body.password &&
-    req.body.passwordConf) {
-
+  // Create user when signing up
+  if (req.body.email && req.body.password && req.body.verifyPassword) {
     var userData = {
       email: req.body.email,
-      username: req.body.username,
       password: req.body.password,
-      passwordConf: req.body.passwordConf,
     }
-
     User.create(userData, function (error, user) {
       if (error) {
+        console.err("Unable to create user");
         return next(error);
       } else {
         req.session.userId = user._id;
-        return res.redirect('/profile');
+        return res.redirect('http://localhost:5000');
       }
     });
-
-  } else if (req.body.logemail && req.body.logpassword) {
+  }
+  // Log in authentication when logging in
+  else if (req.body.logemail && req.body.logpassword) {
     User.authenticate(req.body.logemail, req.body.logpassword, function (error, user) {
       if (error || !user) {
         var err = new Error('Wrong email or password.');
@@ -60,15 +54,21 @@ router.post('/', function (req, res, next) {
         return res.redirect('/profile');
       }
     });
-  } else {
+  }
+  else {
+    console.log("All fields required");
     var err = new Error('All fields required.');
     err.status = 400;
     return next(err);
   }
 })
 
-// GET route after registering
 router.get('/profile', function (req, res, next) {
+  if (!req.session.userId) {
+    console.log("User ID null");
+    return res.redirect('/');
+  }
+
   User.findById(req.session.userId)
     .exec(function (error, user) {
       if (error) {
@@ -96,6 +96,8 @@ router.get('/logout', function (req, res, next) {
         return res.redirect('/');
       }
     });
+  } else {
+    return res.redirect('/');
   }
 });
 
