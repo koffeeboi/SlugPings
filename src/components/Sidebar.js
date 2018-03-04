@@ -10,6 +10,8 @@ class Sidebar extends Component {
     this._onShow = this._onShow.bind(this);
     this._onListings = this._onListings.bind(this);
     this._onChat = this._onChat.bind(this);
+    this._onLogin = this._onLogin.bind(this);
+    this._onSignup = this._onSignup.bind(this);
   }
 
   _onHide() {
@@ -32,6 +34,18 @@ class Sidebar extends Component {
     e.stopPropagation();
     const { showChat } = this.props;
     showChat();
+  }
+
+  _onLogin(e) {
+    e.stopPropagation();
+    const { showLogin } = this.props;
+    showLogin();
+  }
+
+  _onSignup(e) {
+    e.stopPropagation();
+    const { showSignup } = this.props;
+    showSignup();
   }
 
   render() {
@@ -72,10 +86,16 @@ class Sidebar extends Component {
             <span>Chat</span>
           </div>
           <div className="support">
-            <div className="sp-item">
+            <div
+              className="sp-item"
+              onClick={this._onLogin}
+            >
               <span>Login</span>
             </div>
-            <div className="sp-item">
+            <div
+              className="sp-item"
+              onClick={this._onSignup}
+            >
               <span>Sign up</span>
             </div>
             <div className="sp-item">
