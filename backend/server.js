@@ -6,16 +6,14 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var MongoStore = require("connect-mongo")(session);
 var path = require('path');
-// var Comment = require('./model/comments');
 
-//and create our instances
 var app = express();
 
-//set our port to either a predetermined port number if you have set it up, or 3001
-var port = process.env.PORT || 3001;
+var port = process.env.NODE_ENV == "dev" ? 3001 : process.env.PORT;
 
 var mongoDB = process.env.MLAB;
-var db = mongoose.connection; 
+mongoose.connect(mongoDB);
+var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once("open", () => {
   console.log("databased connected to " + mongoDB);
