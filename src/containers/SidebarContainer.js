@@ -5,6 +5,8 @@ import Sidebar from '../components/Sidebar';
 import { showSidebar, hideSidebar } from "../actions/SidebarActions";
 import { showListings, hideListings } from "../actions/ListingsActions";
 import { showChat, hideChat } from "../actions/ChatActions";
+import { showLogin, hideLogin } from "../actions/LoginActions";
+import { showSignup, hideSignup } from "../actions/SignupActions";
 
 const SidebarContainer = props => <Sidebar {...props} />;
 
@@ -22,6 +24,10 @@ const mapDispatchToProps = {
   hideListings,
   showChat,
   hideChat,
+  showLogin,
+  hideLogin,
+  showSignup,
+  hideSignup,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SidebarContainer);
