@@ -22,22 +22,22 @@ const chat = (state = initialState, action) => {
       }
     }
 
-    case (types.CHAT_CHANNEL_SHOW):{
-      return{
+    case (types.CHAT_CHANNEL_SHOW): {
+      return {
         ...state,
         isChannelOpen: true,
       }
     }
 
-    case (types.CHAT_CHANNEL_HIDE):{
-      return{
+    case (types.CHAT_CHANNEL_HIDE): {
+      return {
         ...state,
         isChannelOpen: false,
       }      
     }
 
-    case (types.CHAT_SET_CHANNEL_ID):{
-      return{
+    case (types.CHAT_SET_CHANNEL_ID):{ 
+      return {
         ...state,
         channelID: action.payload,
       }      
