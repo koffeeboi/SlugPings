@@ -36,7 +36,7 @@ class Signup extends Component {
     }
     this.setState({ invalidEmail: false });
 
-    if (this.password.value != this.verifyPassword.value) {
+    if (this.password.value !== this.verifyPassword.value) {
       console.log(`Passwords do not match: ${this.password.value} ${this.verifyPassword.value}`);
       this.setState({ invalidPassword: true, invalidVerifyPassword: true });
       e.preventDefault();
