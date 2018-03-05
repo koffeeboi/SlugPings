@@ -20,7 +20,7 @@ ReactDOM.render(
 // const retrieveData = () => {
 //   setInterval(async () => {
 //     const response = await fetch('https://slugpings-database.herokuapp.com/api/storage', {mode: 'cors'});
-//     const body = await response.json();
+//     const body = await response.json();ss
 
 //     if (response.status !== 200) throw Error(body.message);
 

@@ -1,0 +1,67 @@
+.listing-info {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.listing-info-header {
+  display: block;
+  background-color: white;
+  color: black;
+  font-size: 2em;
+  padding-left: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.chat-body {
+}
+
+.chat-content {
+  position: relative;
+  top: 25%;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 60%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+/* The Close Button */
+.chat-close {
+  position: relative;
+  top: -30px;
+  float: right;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.chat-close:hover, .chat-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.event {
+  height: 2em;
+  font-size: 1.5em;
+}
+
+.event:nth-of-type(even) {
+  background: #22417C;
+  color: #E4B50F;
+}
+
+.event:nth-of-type(odd) {
+  background: #E4B50F;
+  color: #22417C;
+}

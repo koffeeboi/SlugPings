@@ -46,14 +46,13 @@ class Chat extends Component {
     const { chat } = this.props;
 
     return (
-      < ChatChannel chat={chat} />
+      <ChatChannel chat={chat} />
     )
-
   }
 
   /* This function lists out the all of the chat channels*/
   _getEvents() {
-    const { map, chat, showChatChannel, hideChatChannel, setChatChannelID } = this.props;
+    const { map, showChatChannel, setChatChannelID } = this.props;
     const { markers } = map;
 
     let events = markers.map((marker, index) => {

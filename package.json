@@ -28,9 +28,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "concurrently": "^3.5.1",
+    "connect-mongo": "^2.0.1",
     "express": "^4.16.2",
+    "express-session": "^1.15.6",
     "google-map-react": "^0.28.0",
     "leaflet": "^1.3.1",
     "mongoose": "^5.0.6",
@@ -50,8 +53,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "server": "nodemon database/server.js",
     "build": "react-scripts build",
+    "dev": "set NODE_ENV=dev&& concurrently \"npm start\" \"npm run server\"",
+    "prod": "set NODE_ENV=prod&& npm run build && npm run server",
+    "server": "nodemon backend/server.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
