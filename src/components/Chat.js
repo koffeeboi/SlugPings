@@ -46,9 +46,8 @@ class Chat extends Component {
     const { chat } = this.props;
 
     return (
-      < ChatChannel chat={chat} />
+      <ChatChannel chat={chat} />
     )
-
   }
 
   /* This function lists out the all of the chat channels*/
