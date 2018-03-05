@@ -34,7 +34,7 @@ router.post('/', function (req, res, next) {
     }
     User.create(userData, function (error, user) {
       if (error) {
-        console.err("Unable to create user");
+        console.error("Unable to create user");
         return next(error);
       } else {
         req.session.userId = user._id;
@@ -64,6 +64,7 @@ router.post('/', function (req, res, next) {
 })
 
 router.get('/profile', function (req, res, next) {
+  console.log(req.session);
   if (!req.session.userId) {
     console.log("User ID null");
     return res.redirect('/');
