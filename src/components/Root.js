@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
-import LeafletMap from "../components/LeafletMap"
 
 import SidebarContainer from "../containers/SidebarContainer";
 import ListingsContainer from "../containers/ListingsContainer";
