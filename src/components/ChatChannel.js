@@ -3,10 +3,6 @@ import React, { Component } from 'react';
 import "../styles/ChatChannel.css";
 
 class ChatChannel extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentsDidMount() {
   }
 
