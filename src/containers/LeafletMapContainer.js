@@ -8,6 +8,7 @@ import {
   hideMarkerModal,
   addMarker,
   setLastLoc,
+  removeMarker,
 } from "../actions/LeafletMapActions";
 
 const LeafletMapContainer = props => <LeafletMap {...props} />;
@@ -25,6 +26,7 @@ const mapDispatchToProps = {
   hideMarkerModal,
   addMarker,
   setLastLoc,
+  removeMarker,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LeafletMapContainer);
