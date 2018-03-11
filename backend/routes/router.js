@@ -75,32 +75,52 @@ router.post('/login', function (req, res, next) {
 
 router.post('/database/marker/add', function (req, res, next) {
   let marker = req.body;
-  
-  return res.send(JSON.stringify({ status: 200, message: "Successfully added marker to database" }));
-});
-
-router.get('/profile', function (req, res, next) {
-  console.log(req.session);
-  if (!req.session.userId) {
-    console.log("User ID null");
-    return res.redirect('/');
+  let markerData = {
+    id: marker.id,
+    lat: marker.lat,
+    lng: marker.lng,
+    title: marker.title,
+    loc: marker.loc,
+    startTime: marker.startTime,
+    endTime: marker.endTime,
+    moreInfo: marker.moreInfo,
   }
-
-  User.findById(req.session.userId)
-    .exec(function (error, user) {
-      if (error) {
-        return next(error);
-      } else {
-        if (user === null) {
-          var err = new Error('Not authorized! Go back!');
-          err.status = 400;
-          return next(err);
-        } else {
-          return res.send('<h1>Name: </h1>' + user.username + '<h2>Mail: </h2>' + user.email + '<br><a type="button" href="/logout">Logout</a>')
-        }
-      }
-    });
+  Marker.create(markerData, (error) => {
+    if (error) {
+      console.error("Unable to create marker");
+      return next(error);
+    } else {
+      return res.send(JSON.stringify({ status: 200, message: "Successfully added marker to database" }));
+    }
+  });
 });
+
+router.get('/database/markers', function (req, res, next) {
+
+});
+
+// router.get('/profile', function (req, res, next) {
+//   console.log(req.session);
+//   if (!req.session.userId) {
+//     console.log("User ID null");
+//     return res.redirect('/');
+//   }
+
+//   User.findById(req.session.userId)
+//     .exec(function (error, user) {
+//       if (error) {
+//         return next(error);
+//       } else {
+//         if (user === null) {
+//           var err = new Error('Not authorized! Go back!');
+//           err.status = 400;
+//           return next(err);
+//         } else {
+//           return res.send('<h1>Name: </h1>' + user.username + '<h2>Mail: </h2>' + user.email + '<br><a type="button" href="/logout">Logout</a>')
+//         }
+//       }
+//     });
+// });
 
 // GET for logout logout
 router.get('/logout', function (req, res, next) {
