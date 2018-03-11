@@ -19,6 +19,7 @@ class LeafletMap extends Component {
     this._onClick = this._onClick.bind(this);
     this._onCog = this._onCog.bind(this);
     this._onDelete = this._onDelete.bind(this);
+    this._onSync = this._onSync.bind(this);
   }
 
   _onClick(e) {
@@ -40,42 +41,57 @@ class LeafletMap extends Component {
   }
 
   _getMarkers() {
-    const { map } = this.props;
+    let createMarkers = (m) => {
+      return m.map(({ lat, lng, title, loc, startTime, endTime, moreInfo }, index) => {
+        let id = `${lat}-${lng}`;
+        return (
+          <Marker position={{ lat: lat, lng: lng }} key={id}>
+            <Popup>
+              <div>
+                <span>{title}</span>
+                <br />
+                <span>{loc}</span>
+                <br />
+                <span>Start: {startTime} End: {endTime}</span>
+                <br />
+                <span>{moreInfo}</span>
+                <br />
+                <div
+                  className="marker-options"
+                  onClick={this._onCog} >
+                  <i className="fas fa-cog fa-2x"></i>
+                </div>
+                <div
+                  className="marker-options"
+                  onClick={() => { this._onDelete(id) }} >
+                  <i className="fas fa-minus-circle fa-2x"></i>
+                </div>
+              </div>
+            </Popup>
+            <Tooltip>
+              <div>
+                {title}
+              </div>
+            </Tooltip>
+          </Marker>
+        );
+      })
+    };
+
+    const { map, database } = this.props;
     const markers = map.markers;
-    return markers.map(({ lat, lng, title, loc, startTime, endTime, moreInfo }, index) => {
-      let id = `${lat}-${lng}`;
-      return (
-        <Marker position={{ lat: lat, lng: lng }} key={id}>
-          <Popup>
-            <div>
-              <span>{title}</span>
-              <br />
-              <span>{loc}</span>
-              <br />
-              <span>Start: {startTime} End: {endTime}</span>
-              <br />
-              <span>{moreInfo}</span>
-              <br />
-              <div
-                className="marker-options"
-                onClick={this._onCog} >
-                <i className="fas fa-cog fa-2x"></i>
-              </div>
-              <div
-                className="marker-options"
-                onClick={() => { this._onDelete(id)} } >
-                <i className="fas fa-minus-circle fa-2x"></i>
-              </div>
-            </div>
-          </Popup>
-          <Tooltip>
-            <div>
-              {title}
-            </div>
-          </Tooltip>
-        </Marker>
-      );
-    });
+    const dbMarkers = database.markers;
+    let localMarkers = createMarkers(markers);
+    let databaseMarkers = dbMarkers ? createMarkers(dbMarkers) : [];
+
+    return [...localMarkers, ...databaseMarkers];
+  }
+
+  _onSync(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    const { retrieveDatabaseMarkers } = this.props;
+    retrieveDatabaseMarkers();
   }
 
   render() {
@@ -90,6 +106,12 @@ class LeafletMap extends Component {
           addMarker={addMarker}
           lastLoc={lastLoc}
         />
+        <div
+          id="refreshbtn"
+          className="marker-options"
+          onClick={this._onSync} >
+          <i className="fas fa-sync fa-2x"></i>
+        </div>
         <Map
           center={this.state.latlng}
           zoom={16}
