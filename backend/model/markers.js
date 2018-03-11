@@ -3,6 +3,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var MarkerSchema = new Schema({
+  id: { type: String },
   lat: { type: Number },
   lng: { type: Number },
   title: { type: String },
