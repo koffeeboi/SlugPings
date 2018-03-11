@@ -6,6 +6,7 @@ import chat from "../reducers/chat";
 import login from "../reducers/login";
 import signup from "../reducers/signup";
 import map from "../reducers/map";
+import database from "../reducers/database";
 
 const rootReducer = combineReducers({
   sidebar,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   login,
   signup,
   map,
+  database,
 });
 
 export default rootReducer
