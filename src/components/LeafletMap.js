@@ -18,6 +18,7 @@ class LeafletMap extends Component {
 
     this._onClick = this._onClick.bind(this);
     this._onCog = this._onCog.bind(this);
+    this._onDelete = this._onDelete.bind(this);
   }
 
   _onClick(e) {
@@ -33,12 +34,18 @@ class LeafletMap extends Component {
     showMarkerModal();
   }
 
+  _onDelete(id) {
+    const { removeMarker } = this.props;
+    removeMarker(id);
+  }
+
   _getMarkers() {
     const { map } = this.props;
     const markers = map.markers;
     return markers.map(({ lat, lng, title, loc, startTime, endTime, moreInfo }, index) => {
+      let id = `${lat}-${lng}`;
       return (
-        <Marker position={{ lat: lat, lng: lng }} key={`${lat}-${lng}-${index}`}>
+        <Marker position={{ lat: lat, lng: lng }} key={id}>
           <Popup>
             <div>
               <span>{title}</span>
@@ -53,6 +60,11 @@ class LeafletMap extends Component {
                 className="marker-options"
                 onClick={this._onCog} >
                 <i className="fas fa-cog fa-2x"></i>
+              </div>
+              <div
+                className="marker-options"
+                onClick={() => { this._onDelete(id)} } >
+                <i className="fas fa-minus-circle fa-2x"></i>
               </div>
             </div>
           </Popup>
