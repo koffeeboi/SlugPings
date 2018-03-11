@@ -19,6 +19,10 @@ export const saveToDatabase = (marker) => {
     .catch(error => console.log(error));
 };
 
+export const getMarkers = () => {
+  return fetch("http://localhost:3001/database/markers");
+}
+
 // const POST_URL = "https://fierce-hamlet-12953.herokuapp.com/api/marker";
 // //const POST_URL = "http://192.168.1.134:2000/api/marker";
 
