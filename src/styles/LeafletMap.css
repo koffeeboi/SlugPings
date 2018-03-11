@@ -24,11 +24,17 @@
 
 .fa-sync:hover {
   color: rgb(74, 138, 11);
+  animation: refreshbtn-spin infinite 5s linear;
 }
 
 .fa-sync:active {
   color: rgb(125, 245, 4);
 }
+
+@keyframes refreshbtn-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+} 
 
 #refreshbtn {
   background: black;
@@ -36,6 +42,7 @@
   z-index: 999;
   right: 25px;
   bottom: 25px;
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
 }
+
