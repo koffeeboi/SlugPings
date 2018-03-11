@@ -1,3 +1,1 @@
-export const DB_ADD_MARKER = "DB_ADD_MARKER";
-export const DB_REMOVE_MARKER = "DB_REMOVE_MARKER";
-export const DB_GET_MARKERS = "DB_GET_MARKERS";
+export const DB_SET_MARKERS = "DB_SET_MARKERS";
