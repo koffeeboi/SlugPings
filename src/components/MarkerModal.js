@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import "../styles/MarkerModal.css";
 
+import { saveToDatabase } from "../utils/utils";
+
 class MarkerModal extends Component {
   constructor(props) {
     super(props);
@@ -31,7 +33,8 @@ class MarkerModal extends Component {
     e.stopPropagation();
     const { lastLoc, addMarker, hideMarkerModal } = this.props;
 
-    addMarker({
+    let newMarker = {
+      id: `${lastLoc.lat}-${lastLoc.lng}`,
       lat: lastLoc.lat,
       lng: lastLoc.lng,
       title: this.title.value,
@@ -39,7 +42,11 @@ class MarkerModal extends Component {
       startTime: this.startTime.value,
       endTime: this.endTime.value,
       moreInfo: this.moreInfo.value,
-    })
+    };
+
+    addMarker(newMarker);
+
+    saveToDatabase(newMarker);
 
     // Clean up input
     this.setState({
