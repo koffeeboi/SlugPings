@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 var User = require('../model/user');
+var Marker = require('../model/markers');
 
 // GET route for reading data
 // router.get('/', function (req, res, next) {
@@ -18,6 +19,7 @@ var User = require('../model/user');
 
 //POST route for updating data
 router.post('/', function (req, res, next) {
+  console.log("sign up request received");
   // confirm that user typed same password twice
   if (req.body.password !== req.body.verifyPassword) {
     console.log("Passwords do not match \n" + req.body.password + "\n" + req.body.verifyPassword);
@@ -42,19 +44,6 @@ router.post('/', function (req, res, next) {
       }
     });
   }
-  // Log in authentication when logging in
-  else if (req.body.logemail && req.body.logpassword) {
-    User.authenticate(req.body.logemail, req.body.logpassword, function (error, user) {
-      if (error || !user) {
-        var err = new Error('Wrong email or password.');
-        err.status = 401;
-        return next(err);
-      } else {
-        req.session.userId = user._id;
-        return res.redirect('/profile');
-      }
-    });
-  }
   else {
     console.log("All fields required");
     var err = new Error('All fields required.');
@@ -62,6 +51,33 @@ router.post('/', function (req, res, next) {
     return next(err);
   }
 })
+
+router.post('/login', function (req, res, next) {
+  console.log("login requested received");
+  // Log in authentication when logging in
+  if (req.body.email && req.body.password) {
+    User.authenticate(req.body.email, req.body.password, function (error, user) {
+      console.log("Attempting to authenticate " + req.body.email + " and " + req.body.password);
+      if (error || !user) {
+        var err = new Error('Wrong email or password.');
+        err.status = 401;
+        return next(err);
+      } else {
+        req.session.userId = user._id;
+        return res.redirect('http://localhost:5000');
+      }
+    });
+  }
+  else {
+    console.log("Error: email and password does not exist");
+  }
+});
+
+router.post('/database/marker/add', function (req, res, next) {
+  let marker = req.body;
+  
+  return res.send(JSON.stringify({ status: 200, message: "Successfully added marker to database" }));
+});
 
 router.get('/profile', function (req, res, next) {
   console.log(req.session);
