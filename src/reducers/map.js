@@ -4,6 +4,7 @@ const initialState = {
   isMarkerModalOpen: false,
   markers: [
     {
+      id: 36.99694 + "-" + -122.05954,
       lat: 36.99694,
       lng: -122.05954,
       title: "Hi world!",
@@ -47,6 +48,13 @@ const map = (state = initialState, action) => {
         ...state,
         lastLoc: action.payload,
       };
+    }
+
+    case (types.MAP_SET_MARKERS): {
+      return {
+        ...state,
+        markers: action.payload,
+      }
     }
 
     default:
