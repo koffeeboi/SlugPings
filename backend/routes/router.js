@@ -96,7 +96,10 @@ router.post('/database/marker/add', function (req, res, next) {
 });
 
 router.get('/database/markers', function (req, res, next) {
-
+  Marker.find(function (err, markers) {
+    if (err) return res.send(JSON.stringify({ status: 500, message: "Failed to get markers" }));
+    return res.send(JSON.stringify({ status: 200, markers: markers }));
+  });
 });
 
 // router.get('/profile', function (req, res, next) {
