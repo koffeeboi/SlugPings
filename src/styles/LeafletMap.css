@@ -17,3 +17,24 @@
 .fa-cog:hover, .fa-cog:active {
   color: skyblue;
 }
+
+.fa-sync {
+  color: white;
+}
+
+.fa-sync:hover {
+  color: rgb(74, 138, 11);
+}
+
+.fa-sync:active {
+  color: rgb(125, 245, 4);
+}
+
+#refreshbtn {
+  background: black;
+  position: absolute;
+  z-index: 999;
+  right: 25px;
+  bottom: 25px;
+  padding: 5px;
+}
