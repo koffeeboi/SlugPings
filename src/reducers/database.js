@@ -1,17 +1,17 @@
 import * as types from "../constants/DatabaseConstants";
 
 const initialState = {
-
+  markers: [],
 };
 
 const database = (state = initialState, action) => {
   switch (action.type) {
 
-    case (types): { 
+    case (types.DB_SET_MARKERS): {
       return {
         ...state,
-        channelID: action.payload,
-      }      
+        markers: action.payload,
+      }
     }
 
     default:
