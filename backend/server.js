@@ -69,6 +69,18 @@ app.use(function (err, req, res, next) {
 });
 
 //starts the server and listens for requests
-app.listen(port, function () {
+var server = app.listen(port, function () {
   console.log(`api running on port ${port}`);
+});
+
+
+var socket = require("socket.io");
+var io = socket(server);
+
+io.on("connection", (socket) => {
+  console.log(socket.id);
+
+  socket.on('SEND_MESSAGE', (data) => {
+    io.emit("RECEIVE_MESSAGE", data);
+  });
 });
