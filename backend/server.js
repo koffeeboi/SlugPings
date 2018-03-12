@@ -11,7 +11,7 @@ var app = express();
 
 var port = process.env.NODE_ENV == "dev" ? 3001 : process.env.PORT;
 
-var mongoDB = process.env.MLAB;
+var mongoDB = process.env.MLAB; console.log(mongoDB);
 mongoose.connect(mongoDB);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -28,7 +28,6 @@ app.use(bodyParser.json());
 
 //To prevent errors from Cross Origin Resource Sharing, we will set our headers to allow CORS with middleware like so:
 app.use(function (req, res, next) {
-  res.setHeader('Content-Type', 'text/plain');
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
@@ -48,8 +47,11 @@ app.use(session({
   }),
 }))
 
-if (process.env.NODE_ENV == "prod")
+if (process.env.NODE_ENV == "prod") {
+  console.log("Running production server");
+  console.log("Serving files from " + path.join(__dirname, "../build"));
   app.use(express.static(path.join(__dirname, "../build")));
+}
 
 var routes = require("./routes/router");
 app.use('/', routes);
