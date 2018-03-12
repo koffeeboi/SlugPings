@@ -21,10 +21,10 @@
   padding-bottom: 0.5em;
 }
 
-.chat-body {
+.listing-info-body {
 }
 
-.chat-content {
+.listing-info-content {
   position: relative;
   top: 25%;
   background-color: #fefefe;
@@ -36,7 +36,7 @@
 }
 
 /* The Close Button */
-.chat-close {
+.listing-info-close {
   position: relative;
   top: -30px;
   float: right;
@@ -45,23 +45,24 @@
   font-weight: bold;
 }
 
-.chat-close:hover, .chat-close:focus {
+.listing-info-close:hover, .listing-info-close:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
 }
 
-.event {
+.listing-info-item {
   height: 2em;
   font-size: 1.5em;
+  cursor: pointer;
 }
 
-.event:nth-of-type(even) {
+.listing-info-item:nth-of-type(even) {
   background: #22417C;
   color: #E4B50F;
 }
 
-.event:nth-of-type(odd) {
+.listing-info-item:nth-of-type(odd) {
   background: #E4B50F;
   color: #22417C;
 }
