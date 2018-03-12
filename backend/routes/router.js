@@ -8,7 +8,7 @@ var Marker = require('../model/markers');
 router.get('/', function (req, res, next) {
   const fs = require('fs');
 
-  fs.readdir(path.join(__dirname + '/../../build/static'), (err, files) => {
+  fs.readdir(path.join(__dirname + '/../../build/static/js'), (err, files) => {
     files.forEach(file => {
       console.log(file);
     });
