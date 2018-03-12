@@ -43,10 +43,18 @@ class Chat extends Component {
   }
 
   _getChannel() {
-    const { chat } = this.props;
+    const {
+      chat,
+      showChatChannel,
+      hideChatChannel,
+    } = this.props;
 
     return (
-      <ChatChannel chat={chat} />
+      <ChatChannel
+        chat={chat}
+        showChatChannel={showChatChannel}
+        hideChatChannel={hideChatChannel}
+      />
     )
   }
 
@@ -57,11 +65,11 @@ class Chat extends Component {
 
     let events = markers.map((marker, index) => {
       let openChannel = () => {
-        setChatChannelID(marker.title);
+        setChatChannelID(marker.id);
         showChatChannel();
       }
       return (
-        <div className="event" key={`${marker.title}`} onClick={openChannel}>
+        <div className="event" key={`${marker.id}`} onClick={openChannel}>
           <span>
             {marker.startTime} - {marker.endTime} {marker.title} @ {marker.loc}
             <i className="fas fa-ellipsis-v fa-1x" />
