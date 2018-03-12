@@ -21,7 +21,7 @@ class ChatChannel extends Component {
     this._sendMessage = this._sendMessage.bind(this);
     this._createMessages = this._createMessages.bind(this);
 
-    this.socket = io("localhost:3001");
+    this.socket = io(process.env.REACT_APP_API_URL);
     this.socket.on("RECEIVE_MESSAGE", (data) => {
       this._addMessage(data);
     });

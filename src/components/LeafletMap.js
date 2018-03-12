@@ -34,7 +34,7 @@ class LeafletMap extends Component {
   _onCog(e) {
     e.stopPropagation();
     const { showMarkerModal } = this.props;
-    // TODO fix later, should be editMarkerModal
+    // TODO fix later, should be 5editMarkerModal
     showMarkerModal();
   }
 

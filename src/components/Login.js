@@ -54,7 +54,7 @@ class Login extends Component {
             <h2>Login</h2>
           </div>
           <div className="login-body">
-            <form id="LoginForm" action="http://localhost:3001/login" method="POST">
+            <form id="LoginForm" action="{process.env.REACT_APP_API_URL}/login" method="POST">
               <fieldset>
                 <input
                   className={this.state.invalidEmail ? "invalid" : ""}

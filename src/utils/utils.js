@@ -1,5 +1,5 @@
 export const saveToDatabase = (marker) => {
-  fetch('http://localhost:3001/database/marker/add', {
+  fetch(process.env.REACT_APP_API_URL + '/database/marker/add', {
     body: JSON.stringify(marker),
     mode: 'cors',
     headers: {
@@ -20,7 +20,7 @@ export const saveToDatabase = (marker) => {
 };
 
 export const getMarkers = () => {
-  return fetch("http://localhost:3001/database/markers");
+  return fetch(process.env.REACT_APP_API_URL + "/database/markers");
 }
 
 // const POST_URL = "https://fierce-hamlet-12953.herokuapp.com/api/marker";

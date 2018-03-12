@@ -35,7 +35,7 @@ export const retrieveDatabaseMarkers = () => (dispatch, getState) => {
 };
 
 export const deleteDatabaseMarker = (id) => (dispatch, getState) => {
-  fetch("http://localhost:3001/database/marker/delete/" + id, {
+  fetch(process.env.REACT_APP_API_URL + "/database/marker/delete/" + id, {
     method: 'DELETE',
   })
     .then((resp) => {

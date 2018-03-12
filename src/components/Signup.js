@@ -64,7 +64,7 @@ class Signup extends Component {
             <h2>Sign up</h2>
           </div>
           <div className="signup-body">
-            <form id="SignupForm" action="http://localhost:3001" method="POST">
+            <form id="SignupForm" action={process.env.REACT_APP_API_URL} method="POST">
               <fieldset>
                 <input
                   className={this.state.invalidEmail ? "invalid" : ""}
