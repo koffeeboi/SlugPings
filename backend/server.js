@@ -9,7 +9,7 @@ var path = require('path');
 
 var app = express();
 
-var port = process.env.NODE_ENV == "dev" ? 3001 : process.env.PORT;
+var port = process.env.NODE_ENV == "development" ? 3001 : process.env.PORT;
 
 var mongoDB = process.env.MLAB; console.log(mongoDB);
 mongoose.connect(mongoDB);
@@ -47,7 +47,7 @@ app.use(session({
   }),
 }))
 
-if (process.env.NODE_ENV == "prod") {
+if (process.env.NODE_ENV == "production") {
   console.log("Running production server");
   console.log("Serving files from " + path.join(__dirname, "../build"));
   app.use(express.static(path.join(__dirname, "../build")));
