@@ -16,6 +16,8 @@ temp/
 package-lock.json
 desktop.ini
 .env
+.env.production
+.env.development
 
 # Production
 build
