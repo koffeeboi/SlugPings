@@ -25,7 +25,6 @@ class Listings extends Component {
 
   _getHome() {
     return (
-
       <div className="listings-content">
         <span
           className="listings-close"
@@ -44,9 +43,20 @@ class Listings extends Component {
   }
 
   _getListingInfo() {
-    const { listings } = this.props;
+    const { map, listings, showListingInfo, hideListingInfo } = this.props;
+    const { markers } = map;
+    let info = null;
+    for (let marker of markers) {
+      if (marker.id === listings.listingInfoID)
+        info = marker;
+    }
     return (
-      <ListingInfo listings={listings} />
+      <ListingInfo 
+      info={info} 
+      listings={listings} 
+      showListingInfo={showListingInfo} 
+      hideListingInfo={hideListingInfo}
+      />
     )
   }
 
@@ -56,11 +66,11 @@ class Listings extends Component {
 
     let events = markers.map((marker, index) => {
       let openListingInfo = () => {
-        setListingInfoID(marker.title);
+        setListingInfoID(marker.id);
         showListingInfo();
       }
       return (
-        <div className="event" key={`${marker.title}-${index}`} onClick={openListingInfo}>
+        <div className="event" key={`${marker.id}`} onClick={openListingInfo}>
           <span>
             {marker.startTime} - {marker.endTime} {marker.title} @ {marker.loc}
             <i className="fas fa-ellipsis-v fa-1x" />
