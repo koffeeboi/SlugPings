@@ -5,9 +5,9 @@ var User = require('../model/user');
 var Marker = require('../model/markers');
 
 // GET route for reading data
-// router.get('/', function (req, res, next) {
-//   return res.sendFile(path.join(__dirname + '/../../build/'));
-// });
+router.get('/', function (req, res, next) {
+  res.sendFile(path.join(__dirname + '/../../build/index.html'));
+});
 
 //  //now  we can set the route path & initialize the API
 //  router.get('/', function (req, res) {
@@ -40,7 +40,8 @@ router.post('/', function (req, res, next) {
         return next(error);
       } else {
         req.session.userId = user._id;
-        return res.redirect('http://localhost:5000');
+        console.log("New user created");
+        return res.redirect(req.headers.origin);
       }
     });
   }
@@ -64,7 +65,7 @@ router.post('/login', function (req, res, next) {
         return next(err);
       } else {
         req.session.userId = user._id;
-        return res.redirect('http://localhost:5000');
+        return res.redirect(req.headers.origin);
       }
     });
   }
@@ -144,11 +145,11 @@ router.get('/logout', function (req, res, next) {
       if (err) {
         return next(err);
       } else {
-        return res.redirect('/');
+        return res.redirect(req.headers.origin);
       }
     });
   } else {
-    return res.redirect('/');
+    return res.redirect(req.headers.origin);
   }
 });
 
