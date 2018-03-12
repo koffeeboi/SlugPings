@@ -66,6 +66,7 @@ class Signup extends Component {
           <div className="signup-body">
             <form id="SignupForm" action={process.env.REACT_APP_API_URL} method="POST">
               <fieldset>
+              Email<br />
                 <input
                   className={this.state.invalidEmail ? "invalid" : ""}
                   id="iEmail"
@@ -74,28 +75,31 @@ class Signup extends Component {
                   placeholder="Email (@ucsc.edu)"
                   ref={(input) => { this.email = input }}
                 />
-                <br />
+                <br /><br />
+                Password<br />
                 <input
                   className={this.state.invalidPassword ? "invalid" : ""}
                   id="iPassword"
-                  type="text"
+                  type="password"
                   name="password"
                   placeholder="Password"
                   ref={(input) => { this.password = input }}
                 />
-                <br />
+                <br /><br />
+                Verify Password<br />
                 <input
                   className={this.state.invalidVerifyPassword ? "invalid" : ""}
                   id="iVerifyPassword"
-                  type="text"
+                  type="password"
                   name="verifyPassword"
                   placeholder="Verify Password"
                   ref={(input) => { this.verifyPassword = input }}
                 />
-                <br />
+                <br /><br />
               </fieldset>
-              <input form="SignupForm" type="submit" onClick={this._onSubmit} />
+              <input form="SignupForm" type="submit" class="btn" onClick={this._onSubmit} />
             </form>
+              <br />
           </div>
         </div>
       </div>
