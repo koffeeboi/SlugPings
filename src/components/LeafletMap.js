@@ -20,6 +20,9 @@ class LeafletMap extends Component {
     this._onCog = this._onCog.bind(this);
     this._onDelete = this._onDelete.bind(this);
     this._onSync = this._onSync.bind(this);
+
+    // Initialize database markers on start up
+    this.props.retrieveDatabaseMarkers();
   }
 
   _onClick(e) {
@@ -35,14 +38,15 @@ class LeafletMap extends Component {
     showMarkerModal();
   }
 
-  _onDelete(id) {
-    const { removeMarker } = this.props;
+  _onDelete(id, dbID = null) {
+    const { removeMarker, deleteDatabaseMarker } = this.props;
     removeMarker(id);
+    deleteDatabaseMarker(dbID);
   }
 
   _getMarkers() {
     let createMarkers = (m) => {
-      return m.map(({ lat, lng, title, loc, startTime, endTime, moreInfo }, index) => {
+      return m.map(({ _id, lat, lng, title, loc, startTime, endTime, moreInfo }, index) => {
         let id = `${lat}-${lng}`;
         return (
           <Marker position={{ lat: lat, lng: lng }} key={id}>
@@ -63,7 +67,7 @@ class LeafletMap extends Component {
                 </div>
                 <div
                   className="marker-options"
-                  onClick={() => { this._onDelete(id) }} >
+                  onClick={() => { this._onDelete(id, _id) }} >
                   <i className="fas fa-minus-circle fa-2x"></i>
                 </div>
               </div>

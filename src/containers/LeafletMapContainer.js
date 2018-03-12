@@ -13,6 +13,7 @@ import {
 
 import {
   retrieveDatabaseMarkers,
+  deleteDatabaseMarker,
 } from "../actions/DatabaseAction";
 
 const LeafletMapContainer = props => <LeafletMap {...props} />;
@@ -33,6 +34,7 @@ const mapDispatchToProps = {
   setLastLoc,
   removeMarker,
   retrieveDatabaseMarkers,
+  deleteDatabaseMarker,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LeafletMapContainer);
