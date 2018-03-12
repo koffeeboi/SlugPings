@@ -5,9 +5,9 @@ var User = require('../model/user');
 var Marker = require('../model/markers');
 
 // GET route for reading data
-router.get('/', function (req, res, next) {
-  res.sendFile(path.join(__dirname + '/../../build/index.html'));
-});
+// router.get('/', function (req, res, next) {
+//   res.sendFile(path.join(__dirname + '/../../build/index.html'));
+// });
 
 //  //now  we can set the route path & initialize the API
 //  router.get('/', function (req, res) {
