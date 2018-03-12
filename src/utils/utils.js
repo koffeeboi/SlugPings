@@ -11,7 +11,7 @@ export const saveToDatabase = (marker) => {
     .then(async (resp) => {
       let msg = await resp.json();
 
-      if (msg.status != 200)
+      if (msg.status !== 200)
         throw Error("Something went wrong when trying to add marker to the database");
 
       console.log("Successfully added new marker to database");

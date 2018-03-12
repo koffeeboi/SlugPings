@@ -12,7 +12,7 @@ export const retrieveDatabaseMarkers = () => (dispatch, getState) => {
     .then(async (resp) => {
       let msg = await resp.json();
 
-      if (msg.status != 200)
+      if (msg.status !== 200)
         throw Error("Unable to get markers from database");
 
       //console.log(msg);
@@ -24,7 +24,7 @@ export const retrieveDatabaseMarkers = () => (dispatch, getState) => {
       // Remove any duplicates such as own markers O(n^2)
       let dbMarkers = msg.markers.filter(dbMarker => {
         for (let marker of markers) {
-          if (marker.id == dbMarker.id)
+          if (marker.id === dbMarker.id)
             return false;
         }
         return true;

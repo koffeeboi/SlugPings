@@ -31,7 +31,7 @@ export const removeMarker = (id) => (dispatch, getState) => {
    const { map } = getState();
    const newMarkers = [...map.markers];
    for (let i = 0; i < newMarkers.length; i++) {
-     if (newMarkers[i].id == id) {
+     if (newMarkers[i].id === id) {
        // Remove the marker at index i
        newMarkers.splice(i, 1);
      }
