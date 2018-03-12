@@ -95,6 +95,17 @@ router.post('/database/marker/add', function (req, res, next) {
   });
 });
 
+router.delete('/database/marker/delete/:id', function (req, res, next) {
+  console.log(req.params.id);
+  Marker.findByIdAndRemove(req.params.id, (err, marker) => {
+    const response = {
+      status: 200,
+      marker: marker,
+    }
+    return res.send(JSON.stringify(response));
+  });
+});
+
 router.get('/database/markers', function (req, res, next) {
   Marker.find(function (err, markers) {
     if (err) return res.send(JSON.stringify({ status: 500, message: "Failed to get markers" }));
