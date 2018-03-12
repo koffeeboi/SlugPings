@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import "../styles/ChatChannelMessage.css";
 
 class ChatChannelMessage extends Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   render() {
     const { message } = this.props;
