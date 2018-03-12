@@ -1,11 +1,9 @@
 # SlugPings
 A live, interactive map where users place markers to ping an event occuring on campus.
 
-Live demo: https://slugpings.herokuapp.com/
+Live demo: https://slugpings.herokuapp.com/ (takes ~30 seconds for server to wake up)
 
-Two main source directories: 
-
-    SlugPings (https://github.com/hueyjj/SlugPings)
+![Live Demo](https://raw.githubusercontent.com/hueyjj/SlugPings/master/screenshots/Release0.0.1.PNG)
 
 ## Setting up SlugPings
 ```bash
@@ -34,8 +32,27 @@ cd SlugPings
 heroku local web
 ```
 
+## Developing
+```bash
+cd SlugPings
+git checkout dev
+heroku local dev
+```
+
 ## Backend
-- Heroku (in Node.js)
+- Server is hosted by Heroku
+- Written in Node.js
+- Express.js (network framework)
+- Socket.io (chat)
+- Moongoose (framework for MongoDB)
+- MongoDB (database)
+- mLab (server hosting MongoDB)
+
+## Frontend
+- React/Redux
+- Socket.io
+- React leaflet
+- Bcrypt
 
 ## Technology Stack
 - MongoDB - back-end database
@@ -48,4 +65,3 @@ heroku local web
 
 ## Libraries
 - Font Awesome
-- Bootstrap
