@@ -29,8 +29,21 @@ export const retrieveDatabaseMarkers = () => (dispatch, getState) => {
         }
         return true;
       });
-
       dispatch(setDatabaseMarkersInStore(dbMarkers));
     })
     .catch(error => console.log(error));
+};
+
+export const deleteDatabaseMarker = (id) => (dispatch, getState) => {
+  fetch("http://localhost:3001/database/marker/delete/" + id, {
+    method: 'DELETE',
+  })
+    .then((resp) => {
+      if (resp.status !== 200)
+        throw Error("Something went wrong when deleting marker from database");
+
+      dispatch(retrieveDatabaseMarkers());
+      console.log("Successfully deleted marker=" + id);
+    })
+    .catch(err => console.log(err));
 };
