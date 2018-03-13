@@ -2,6 +2,9 @@ import * as types from "../constants/LeafletMapConstants";
 
 const initialState = {
   isMarkerModalOpen: false,
+  isEditMarkerModalOpen: false,
+  editMarkerID: null,
+  editDBMarkerID: null,
   markers: [
     {
       id: 36.99694 + "-" + -122.05954,
@@ -33,6 +36,34 @@ const map = (state = initialState, action) => {
       return {
         ...state,
         isMarkerModalOpen: false,
+      }
+    }
+
+    case (types.MAP_SET_EDIT_MARKER_MODAL_ID): {
+      return {
+        ...state,
+        editMarkerID: action.payload,
+      }
+    }
+
+    case (types.MAP_SET_EDIT_DB_MARKER_ID): {
+      return {
+        ...state,
+        editDBMarkerID: action.payload,
+      }
+    }
+
+    case (types.MAP_SHOW_EDIT_MARKER_MODAL): {
+      return {
+        ...state,
+        isEditMarkerModalOpen: true,
+      }
+    }
+
+    case (types.MAP_HIDE_EDIT_MARKER_MODAL): {
+      return {
+        ...state,
+        isEditMarkerModalOpen: false,
       }
     }
 

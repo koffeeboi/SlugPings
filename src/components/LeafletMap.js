@@ -4,6 +4,7 @@ import { Map, Marker, Popup, TileLayer, ZoomControl, Tooltip } from 'react-leafl
 import "../styles/LeafletMap.css";
 
 import MarkerModal from "../components/MarkerModal";
+import EditMarkerModal from '../components/EditMarkerModal';
 
 class LeafletMap extends Component {
   constructor(props) {
@@ -32,9 +33,14 @@ class LeafletMap extends Component {
   }
 
   _onCog(id, dbID = null) {
-    const { showMarkerModal } = this.props;
-    // TODO fix later, should be 5editMarkerModal
-    showMarkerModal();
+    const {
+      showEditMarkerModal,
+      setEditMarkerID,
+      setEditDBMarkerID,
+    } = this.props;
+    setEditMarkerID(id);
+    setEditDBMarkerID(dbID);
+    showEditMarkerModal();
   }
 
   _onDelete(id, dbID = null) {
@@ -98,8 +104,20 @@ class LeafletMap extends Component {
   }
 
   render() {
-    const { map, hideMarkerModal, addMarker } = this.props;
-    const { isMarkerModalOpen, lastLoc } = map;
+    const {
+      map,
+      database,
+      hideMarkerModal,
+      addMarker,
+      hideEditMarkerModal,
+      updateMarker,
+      retrieveDatabaseMarkers,
+    } = this.props;
+    const {
+      isMarkerModalOpen,
+      isEditMarkerModalOpen,
+      lastLoc
+    } = map;
 
     return (
       <div className="map-container">
@@ -108,6 +126,14 @@ class LeafletMap extends Component {
           hideMarkerModal={hideMarkerModal}
           addMarker={addMarker}
           lastLoc={lastLoc}
+        />
+        <EditMarkerModal
+          isEditMarkerModalOpen={isEditMarkerModalOpen}
+          hideEditMarkerModal={hideEditMarkerModal}
+          updateMarker={updateMarker}
+          retrieveDatabaseMarkers={retrieveDatabaseMarkers}
+          map={map}
+          database={database}
         />
         <div
           id="refreshbtn"

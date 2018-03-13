@@ -9,6 +9,11 @@ import {
   addMarker,
   setLastLoc,
   removeMarker,
+  showEditMarkerModal,
+  hideEditMarkerModal,
+  setEditMarkerID,
+  updateMarker,
+  setEditDBMarkerID,
 } from "../actions/LeafletMapActions";
 
 import {
@@ -35,6 +40,11 @@ const mapDispatchToProps = {
   removeMarker,
   retrieveDatabaseMarkers,
   deleteDatabaseMarker,
+  showEditMarkerModal,
+  hideEditMarkerModal,
+  setEditMarkerID,
+  updateMarker,
+  setEditDBMarkerID,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LeafletMapContainer);
