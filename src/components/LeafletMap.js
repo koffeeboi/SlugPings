@@ -31,8 +31,7 @@ class LeafletMap extends Component {
     showMarkerModal();
   }
 
-  _onCog(e) {
-    e.stopPropagation();
+  _onCog(id, dbID = null) {
     const { showMarkerModal } = this.props;
     // TODO fix later, should be 5editMarkerModal
     showMarkerModal();
@@ -62,7 +61,7 @@ class LeafletMap extends Component {
                 <br />
                 <div
                   className="marker-options"
-                  onClick={this._onCog} >
+                  onClick={() => { this._onCog(id, _id) }} >
                   <i className="fas fa-cog fa-2x"></i>
                 </div>
                 <div
