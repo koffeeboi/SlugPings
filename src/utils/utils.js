@@ -36,8 +36,9 @@ export const editMarkerInDatabase = (id, marker, cb = null) => {
         throw Error("Something went wrong when trying to update marker in the database");
 
       console.log("Successfully updated the marker in the database");
-      
-      cb();
+
+      if (cb)
+        cb();
     })
     .catch(error => console.log(error));
 }
