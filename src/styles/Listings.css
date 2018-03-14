@@ -13,8 +13,8 @@
 
 .listings-header {
   display: block;
-  background-color: white;
-  color: black;
+  background-color: #294E74;
+  color: #FFC500;
   font-size: 2em;
   padding-left: 1em;
   padding-top: 0.5em;
@@ -52,6 +52,7 @@
 }
 
 .event {
+  padding: 10px;
   height: 2em;
   font-size: 1.5em;
   cursor: pointer;

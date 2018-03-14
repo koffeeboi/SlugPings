@@ -97,7 +97,7 @@ class Signup extends Component {
                 />
                 <br />
               </fieldset>
-              <input form="SignupForm" type="submit" class="btn btn-primary" onClick={this._onSubmit} />
+              <input form="SignupForm" type="submit" className="btn btn-primary" onClick={this._onSubmit} />
             </form>
               <br />
           </div>

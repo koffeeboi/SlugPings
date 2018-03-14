@@ -14,10 +14,10 @@ import {
 const ChatContainer = props => <Chat {...props} />;
 
 const mapStateToProps = (state) => {
-  const { chat, map } = state;
+  const { chat, map, database } = state;
 
   return {
-    chat, map
+    chat, map, database
   }
 };
 

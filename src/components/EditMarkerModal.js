@@ -97,7 +97,7 @@ class EditMarkerModal extends Component {
         <div className="modal-content">
           <div className="modal-header">
             <span
-              className="close"
+              className="close-btn"
               onClick={this._onClose}
             >
               &times;
@@ -108,7 +108,7 @@ class EditMarkerModal extends Component {
             <div className="input-container">
               <input
                 type="text"
-                className="form-input"
+                className="form-control form-input"
                 id="addTitle"
                 placeholder="Title"
                 ref={(input) => this.title = input}
@@ -117,7 +117,7 @@ class EditMarkerModal extends Component {
             <div className="input-container">
               <input
                 type="text"
-                className="form-input"
+                className="form-control form-input"
                 id="addLocation"
                 placeholder="Location"
                 ref={(input) => this.loc = input}
@@ -126,7 +126,7 @@ class EditMarkerModal extends Component {
             <div className="input-container">
               <input
                 type="text"
-                className="form-input"
+                className="form-control form-input"
                 id="addStartTime"
                 placeholder="Start Time"
                 ref={(input) => this.startTime = input}
@@ -135,7 +135,7 @@ class EditMarkerModal extends Component {
             <div className="input-container">
               <input
                 type="text"
-                className="form-input"
+                className="form-control form-input"
                 id="addEndTime"
                 placeholder="End Time"
                 ref={(input) => this.endTime = input}
@@ -143,14 +143,14 @@ class EditMarkerModal extends Component {
             </div>
             <div className="input-container">
               <textarea
-                className="form-input-paragraph"
+                className="form-control form-input-paragraph"
                 placeholder="Additional information"
                 ref={(input) => this.moreInfo = input}
               />
             </div>
             <div className="input-container">
               <button
-                className="button-save"
+                className="btn btn-primary button-save"
                 onClick={this._onSave}
               >
                 Save

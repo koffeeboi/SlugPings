@@ -13,10 +13,11 @@ import {
 const ListingsContainer = props => <Listings {...props} />;
 
 const mapStateToProps = (state) => {
-  const { listings, map } = state;
+  const { listings, map, database } = state;
   return {
     listings,
     map,
+    database
   }
 };
 

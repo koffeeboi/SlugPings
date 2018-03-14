@@ -39,12 +39,12 @@ class Chat extends Component {
         </div>
       </div>
     )
-
   }
 
   _getChannel() {
     const {
       chat,
+      map,
       showChatChannel,
       hideChatChannel,
     } = this.props;
@@ -52,6 +52,7 @@ class Chat extends Component {
     return (
       <ChatChannel
         chat={chat}
+        map={map}
         showChatChannel={showChatChannel}
         hideChatChannel={hideChatChannel}
       />
@@ -60,8 +61,8 @@ class Chat extends Component {
 
   /* This function lists out the all of the chat channels*/
   _getEvents() {
-    const { map, showChatChannel, setChatChannelID } = this.props;
-    const { markers } = map;
+    const { map, database, showChatChannel, setChatChannelID } = this.props;
+    let markers = [...map.markers, ...database.markers];
 
     let events = markers.map((marker, index) => {
       let openChannel = () => {

@@ -13,23 +13,27 @@
 
 .modal-header {
   padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
+  background-color: #294E74;
+  color: #FCC302;
   text-align: center;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body {
+  background: #FCC302;
+  padding: 2px 16px;
+}
 
 .modal-footer {
   padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
+  background-color: #294E74;
+  color:#FCC302;
   text-align: right;
 }
 
 .modal-content {
   position: relative;
-  background-color: #fefefe;
+  background-color: #FCC302;
+  top: 50px;
   margin: auto;
   padding: 0;
   border: 1px solid #888;
@@ -42,18 +46,18 @@
 /* Add Animation */
 @keyframes animatetop {
   from {top: -300px; opacity: 0}
-  to {top: 0; opacity: 1}
+  to {top: 50px; opacity: 1}
 }
 
 /* The Close Button */
-.close {
+.close-btn {
   color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.close:hover, .close:focus {
+.close-btn:hover, .close-btn:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;

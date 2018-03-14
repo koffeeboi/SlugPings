@@ -43,8 +43,9 @@ class Listings extends Component {
   }
 
   _getListingInfo() {
-    const { map, listings, showListingInfo, hideListingInfo } = this.props;
-    const { markers } = map;
+    const { map, database, listings, showListingInfo, hideListingInfo } = this.props;
+    let markers = [...map.markers, ...database.markers];
+    
     let info = null;
     for (let marker of markers) {
       if (marker.id === listings.listingInfoID)
@@ -61,8 +62,8 @@ class Listings extends Component {
   }
 
   _getEvents() {
-    const { map, showListingInfo, setListingInfoID } = this.props;
-    const { markers } = map;
+    const { map, database, showListingInfo, setListingInfoID } = this.props;
+    let markers = [...map.markers, ...database.markers];
 
     let events = markers.map((marker, index) => {
       let openListingInfo = () => {

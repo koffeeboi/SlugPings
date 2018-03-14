@@ -77,7 +77,7 @@ class Login extends Component {
                 />
                 <br />
               </fieldset>
-              <input form="LoginForm" type="submit" class="btn btn-primary" onClick={this._onSubmit} />
+              <input form="LoginForm" type="submit" className="btn btn-primary" onClick={this._onSubmit} />
               <br />
               <br />
             </form>

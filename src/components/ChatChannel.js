@@ -57,7 +57,13 @@ class ChatChannel extends Component {
   }
 
   render() {
-    const { chat } = this.props;
+    const { chat, map } = this.props;
+    let title = null;
+    for (let marker of map.markers) {
+      if (marker.id === chat.channelID) {
+        title = marker.title;
+      }
+    }
 
     return (
       <div className="chat">
@@ -69,7 +75,7 @@ class ChatChannel extends Component {
             &times;
           </span>
           <div className="chat-header">
-            Chat for {chat.title}
+            {title ? "Chat for " + title : "Chat"}
           </div>
           <div className="chat-body">
             {this._createMessages()}
