@@ -56,6 +56,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "dev": "set NODE_ENV=development&& concurrently \"npm start\" \"npm run server\"",
+    "dev-linux": "export NODE_ENV=development&& concurrently \"npm start\" \"npm run server\"",
     "prod": "set NODE_ENV=production&& npm run build && npm run server",
     "server": "nodemon backend/server.js",
     "test": "react-scripts test --env=jsdom",

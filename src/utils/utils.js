@@ -19,6 +19,30 @@ export const saveToDatabase = (marker) => {
     .catch(error => console.log(error));
 };
 
+export const editMarkerInDatabase = (id, marker, cb = null) => {
+  fetch(process.env.REACT_APP_API_URL + '/database/marker/update/' + id, {
+    body: JSON.stringify(marker),
+    mode: 'cors',
+    headers: {
+      'Accept': 'application/json',
+      'Content-type': 'application/json'
+    },
+    method: 'POST'
+  })
+    .then(async (resp) => {
+      let msg = await resp.json();
+
+      if (msg.status !== 200)
+        throw Error("Something went wrong when trying to update marker in the database");
+
+      console.log("Successfully updated the marker in the database");
+
+      if (cb)
+        cb();
+    })
+    .catch(error => console.log(error));
+}
+
 export const getMarkers = () => {
   return fetch(process.env.REACT_APP_API_URL + "/database/markers");
 }

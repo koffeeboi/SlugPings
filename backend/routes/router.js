@@ -96,6 +96,30 @@ router.post('/database/marker/add', function (req, res, next) {
   });
 });
 
+router.post('/database/marker/update/:id', function (req, res, next) {
+  Marker.findById(req.params.id, function (err, marker) {
+    if (err) {
+      console.error("Unable to find marker");
+      return next(err);
+    }
+    else {
+      let newData = req.body;
+      marker.title = newData.title;
+      marker.loc = newData.loc;
+      marker.startTime = newData.startTime;
+      marker.endTime = newData.endTime;
+      marker.moreInfo = newData.moreInfo;
+      marker.save(function (err, updateMarker) {
+        if (err) {
+          console.error("Unable to update marker");
+          return next(err);
+        }
+      });
+      return res.send(JSON.stringify({ status: 200, message: "Successfully update marker in database" }));
+    }
+  });
+});
+
 router.delete('/database/marker/delete/:id', function (req, res, next) {
   console.log(req.params.id);
   Marker.findByIdAndRemove(req.params.id, (err, marker) => {

@@ -8,13 +8,11 @@ class MarkerModal extends Component {
   constructor(props) {
     super(props);
 
-
     this.title = null;
     this.loc = null;
     this.startTime = null;
     this.endTime = null;
     this.moreInfo = null;
-
 
     this._onClose = this._onClose.bind(this);
     this._onSave = this._onSave.bind(this);

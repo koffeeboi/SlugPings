@@ -9,6 +9,7 @@ var path = require('path');
 
 var app = express();
 
+console.log(process.env.NODE_ENV);
 var port = process.env.NODE_ENV == "development" ? 3001 : process.env.PORT;
 
 var mongoDB = process.env.MLAB; console.log(mongoDB);
