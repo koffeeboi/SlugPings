@@ -27,7 +27,7 @@ class ListingInfo extends Component {
           &times;
         </span>
         <div className="listing-info-header">
-          <span>Information</span>
+          <span>Information for {info.title}</span>
         </div>
         <div className="listing-info-body">
           <div className="listing-info-item">

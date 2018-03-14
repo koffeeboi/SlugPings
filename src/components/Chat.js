@@ -45,6 +45,7 @@ class Chat extends Component {
     const {
       chat,
       map,
+      database,
       showChatChannel,
       hideChatChannel,
     } = this.props;
@@ -53,6 +54,7 @@ class Chat extends Component {
       <ChatChannel
         chat={chat}
         map={map}
+        database={database}
         showChatChannel={showChatChannel}
         hideChatChannel={hideChatChannel}
       />

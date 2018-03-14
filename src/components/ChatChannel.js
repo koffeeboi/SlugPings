@@ -57,9 +57,9 @@ class ChatChannel extends Component {
   }
 
   render() {
-    const { chat, map } = this.props;
+    const { chat, map, database} = this.props;
     let title = null;
-    for (let marker of map.markers) {
+    for (let marker of [...map.markers, ...database.markers]) {
       if (marker.id === chat.channelID) {
         title = marker.title;
       }
