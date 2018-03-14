@@ -46,7 +46,7 @@ class Login extends Component {
         <div className="login-content">
           <div className="login-header">
             <span
-              className="close"
+              className="close-btn"
               onClick={this._onClose}
             >
               &times;
@@ -56,19 +56,19 @@ class Login extends Component {
           <div className="login-body">
             <form id="LoginForm" action="{process.env.REACT_APP_API_URL}/login" method="POST">
               <fieldset>
-              Login<br />
+                Login<br />
                 <input
-                  className={this.state.invalidEmail ? "invalid" : ""}
+                  className={this.state.invalidEmail ? "form-control invalid" : "form-control"}
                   id="iEmail"
                   type="text"
                   name="email"
                   placeholder="Email (@ucsc.edu)"
                   ref={(input) => { this.email = input }}
                 />
-                <br /><br />
+                <br />
                 Password<br />
                 <input
-                  className={this.state.invalidPassword ? "invalid" : ""}
+                  className={this.state.invalidPassword ? "form-control invalid" : "form-control"}
                   id="iPassword"
                   type="password"
                   name="password"
@@ -77,9 +77,9 @@ class Login extends Component {
                 />
                 <br />
               </fieldset>
+              <input form="LoginForm" type="submit" class="btn btn-primary" onClick={this._onSubmit} />
               <br />
-              <input form="LoginForm" type="submit" class="btn" onClick={this._onSubmit} />
-              <br /><br />
+              <br />
             </form>
           </div>
         </div>

@@ -60,12 +60,12 @@ class LeafletMap extends Component {
                 <span>{moreInfo}</span>
                 <br />
                 <div
-                  className="marker-options"
+                  className="marker-options cog"
                   onClick={() => { this._onCog(id, _id) }} >
                   <i className="fas fa-cog fa-2x"></i>
                 </div>
                 <div
-                  className="marker-options"
+                  className="marker-options delete"
                   onClick={() => { this._onDelete(id, _id) }} >
                   <i className="fas fa-minus-circle fa-2x"></i>
                 </div>

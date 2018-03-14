@@ -10,7 +10,7 @@ class ChatChannelMessage extends Component {
   render() {
     const { message } = this.props;
     return (
-      <div className="cc-msg-container">
+      <div className="panel panel-default cc-msg-container">
         <span className="cc-username">{message.username}: </span>
         <span className="cc-msg">{message.message}</span>
       </div>

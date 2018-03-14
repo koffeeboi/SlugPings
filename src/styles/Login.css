@@ -13,25 +13,21 @@
 
 .login-header {
   padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
+  background-color: #294E74;
+  color: #FFC500;
   text-align: center;
 }
 
 .login-body {
   padding: 2px 16px;
-}
-
-.login-footer {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
-  text-align: right;
+  background-color: #FFC500;
+  color: #294E74;
 }
 
 .login-content {
   position: relative;
   background-color: #fefefe;
+  top: 50px;
   margin: auto;
   padding: 0;
   border: 1px solid #888;
@@ -41,22 +37,26 @@
   animation-duration: 0.4s;
 }
 
+#LoginForm {
+  text-align: center;
+}
+
 /* Add Animation */
 @keyframes animatetop {
   from {top: -300px; opacity: 0}
-  to {top: 0; opacity: 1}
+  to {top: 50px; opacity: 1}
 }
 
 /* The Close Button */
-.close {
-  color: #aaa;
+.close-btn {
+  color: black;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.close:hover, .close:focus {
-  color: black;
+.close-btn:hover, .close-btn:focus {
+  color: grey;
   text-decoration: none;
   cursor: pointer;
 }

@@ -11,7 +11,12 @@
 
 .marker-options {
   display: inline-block;
+  padding-top: 10px;
   cursor: pointer;
+}
+
+.delete {
+  float: right;
 }
 
 .fa-cog:hover, .fa-cog:active {

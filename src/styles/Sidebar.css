@@ -27,7 +27,12 @@
   text-align: center;
   padding-top: 25px;
   padding-bottom: 25px;
+  text-decoration: none;
   cursor: pointer;
+}
+
+.sp-item a {
+  text-decoration: none;
 }
 
 .sb-item:hover, .sp-item:hover {
@@ -42,13 +47,13 @@
   cursor: pointer;
 }
 
-.hide {
+.hide-btn {
   color: #aaa;
   font-size: 28px;
   font-weight: bold;
 }
 
-.hide:hover, .hide:focus {
+.hide-btn:hover, .hide-btn:focus {
   color: white;
   text-decoration: none;
   cursor: pointer;

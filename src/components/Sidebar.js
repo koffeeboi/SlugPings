@@ -65,7 +65,7 @@ class Sidebar extends Component {
         <div className="sidebar">
           <div className="hide-container">
             <span
-              className="hide"
+              className="hide-btn"
               onClick={this._onHide}
             >
               &times;
@@ -99,8 +99,10 @@ class Sidebar extends Component {
               <span>Sign up</span>
             </div>
             <div className="sp-item">
-              <i className="fas fa-question fa-2x"></i>
-              <span>Help</span>
+              <a href="https://www.github.com/hueyjj/SlugPings" target="_blank">
+                <i className="fas fa-question fa-2x"></i>
+                <span>Help</span>
+              </a>
             </div>
           </div>
         </div >

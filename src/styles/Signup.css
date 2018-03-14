@@ -13,25 +13,21 @@
 
 .signup-header {
   padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
+  background-color: #294E74;
+  color: #FCC302;
   text-align: center;
 }
 
 .signup-body {
   padding: 2px 16px;
-}
-
-.signup-footer {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
-  text-align: right;
+  background-color: #FCC302;
+  color: #294E74;
 }
 
 .signup-content {
   position: relative;
   background-color: #fefefe;
+  top: 50px;
   margin: auto;
   padding: 0;
   border: 1px solid #888;
@@ -41,10 +37,18 @@
   animation-duration: 0.4s;
 }
 
+#iEmail, #iPassword, #iVerifyPassword {
+  margin: auto;
+}
+
 /* Add Animation */
 @keyframes animatetop {
   from {top: -300px; opacity: 0}
-  to {top: 0; opacity: 1}
+  to {top: 50px; opacity: 1}
+}
+
+#SignupForm {
+  text-align: center;
 }
 
 /* The Close Button */

@@ -56,7 +56,7 @@ class Signup extends Component {
         <div className="signup-content">
           <div className="signup-header">
             <span
-              className="close"
+              className="close-btn"
               onClick={this._onClose}
             >
               &times;
@@ -68,36 +68,36 @@ class Signup extends Component {
               <fieldset>
               Email<br />
                 <input
-                  className={this.state.invalidEmail ? "invalid" : ""}
+                  className={this.state.invalidEmail ? "form-control invalid" : "form-control"}
                   id="iEmail"
                   type="text"
                   name="email"
                   placeholder="Email (@ucsc.edu)"
                   ref={(input) => { this.email = input }}
                 />
-                <br /><br />
+                <br />
                 Password<br />
                 <input
-                  className={this.state.invalidPassword ? "invalid" : ""}
+                  className={this.state.invalidPassword ? "form-control invalid" : "form-control"}
                   id="iPassword"
                   type="password"
                   name="password"
                   placeholder="Password"
                   ref={(input) => { this.password = input }}
                 />
-                <br /><br />
+                <br />
                 Verify Password<br />
                 <input
-                  className={this.state.invalidVerifyPassword ? "invalid" : ""}
+                  className={this.state.invalidVerifyPassword ? "form-control invalid" : "form-control"}
                   id="iVerifyPassword"
                   type="password"
                   name="verifyPassword"
                   placeholder="Verify Password"
                   ref={(input) => { this.verifyPassword = input }}
                 />
-                <br /><br />
+                <br />
               </fieldset>
-              <input form="SignupForm" type="submit" class="btn" onClick={this._onSubmit} />
+              <input form="SignupForm" type="submit" class="btn btn-primary" onClick={this._onSubmit} />
             </form>
               <br />
           </div>

@@ -63,7 +63,7 @@ class ChatChannel extends Component {
       <div className="chat">
         <div className="chat-content">
           <span
-            className="close"
+            className="chat-close"
             onClick={this._onClose}
           >
             &times;
@@ -76,19 +76,19 @@ class ChatChannel extends Component {
             <input
               type="text"
               placeholder="username"
-              className="input-username"
+              className="form-control input-username"
               value={this.state.username}
               onChange={e => this.setState({ username: e.target.value })}
             />
             <input
               type="text"
               placeholder="Message"
-              className="input-message"
+              className="form-control input-message"
               value={this.state.message}
               onChange={e => this.setState({ message: e.target.value })}
             />
             <button
-              className="send-btn"
+              className="btn btn-primary btn-lg send-btn"
               onClick={this._sendMessage}
             >
               Send

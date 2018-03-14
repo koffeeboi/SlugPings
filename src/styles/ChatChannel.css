@@ -65,3 +65,7 @@
   background: #E4B50F;
   color: #22417C;
 }
+
+.form-control {
+  width: 30%;
+}

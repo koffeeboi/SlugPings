@@ -13,23 +13,27 @@
 
 .modal-header {
   padding: 2px 16px;
-  background-color: #5cb85c;
+  background-color: #294E74;
   color: white;
   text-align: center;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body {
+  background: #FCC302;
+  padding: 2px 16px;
+}
 
 .modal-footer {
   padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
+  background-color: #294E74;
+  color:#FCC302;
   text-align: right;
 }
 
 .modal-content {
   position: relative;
-  background-color: #fefefe;
+  background-color: #FCC302;
+  top: 50px;
   margin: auto;
   padding: 0;
   border: 1px solid #888;
@@ -42,19 +46,19 @@
 /* Add Animation */
 @keyframes animatetop {
   from {top: -300px; opacity: 0}
-  to {top: 0; opacity: 1}
+  to {top: 50px; opacity: 1}
 }
 
 /* The Close Button */
-.close {
-  color: #aaa;
+.close-btn {
+  color: black;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.close:hover, .close:focus {
-  color: black;
+.close-btn:hover, .close-btn:focus {
+  color: grey;
   text-decoration: none;
   cursor: pointer;
 }
@@ -106,6 +110,7 @@ textarea:focus:-ms-input-placeholder {
   width: 60%;
   max-width: 90%;
   min-height: 100px;
+  margin: auto;
 }
 
 .input-container {
