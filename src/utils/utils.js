@@ -41,10 +41,24 @@ export const editMarkerInDatabase = (id, marker, cb = null) => {
         cb();
     })
     .catch(error => console.log(error));
-}
+};
 
 export const getMarkers = () => {
   return fetch(process.env.REACT_APP_API_URL + "/database/markers");
+};
+
+export const isMarkerInDatabase = (id) => {
+  return fetch(process.env.REACT_APP_API_URL + "/database/marker/delete/special/" + id);
+}
+
+// Faking it til we make it baby
+export const isMarkerInDbMarkers = (id, dbMarkers) => {
+  for (let marker of dbMarkers) {
+    if (marker.id === id) {
+      return true;
+    }
+  }
+  return false;
 }
 
 // const POST_URL = "https://fierce-hamlet-12953.herokuapp.com/api/marker";

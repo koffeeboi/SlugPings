@@ -121,7 +121,6 @@ router.post('/database/marker/update/:id', function (req, res, next) {
 });
 
 router.delete('/database/marker/delete/:id', function (req, res, next) {
-  console.log(req.params.id);
   Marker.findByIdAndRemove(req.params.id, (err, marker) => {
     const response = {
       status: 200,
@@ -135,6 +134,25 @@ router.get('/database/markers', function (req, res, next) {
   Marker.find(function (err, markers) {
     if (err) return res.send(JSON.stringify({ status: 500, message: "Failed to get markers" }));
     return res.send(JSON.stringify({ status: 200, markers: markers }));
+  });
+});
+
+router.get('/database/marker/delete/special/:id', function (req, res, next) {
+  Marker.find(function (err, markers) {
+    for (let marker of markers) {
+      if (marker.id === req.params.id) {
+        console.log("foo");
+        Marker.findByIdAndRemove(marker._id, (err, marker) => {
+          const response = {
+            status: 200,
+            marker: marker,
+          }
+          return res.send(JSON.stringify(response));
+        });
+        return;
+      }
+    }
+    return res.send(JSON.stringify({ status: 500, message: "Failed to find marker" }))    
   });
 });
 

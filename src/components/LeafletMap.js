@@ -5,6 +5,7 @@ import "../styles/LeafletMap.css";
 
 import MarkerModal from "../components/MarkerModal";
 import EditMarkerModal from '../components/EditMarkerModal';
+import { isMarkerInDatabase } from "../utils/utils";
 
 class LeafletMap extends Component {
   constructor(props) {
@@ -44,9 +45,47 @@ class LeafletMap extends Component {
   }
 
   _onDelete(id, dbID = null) {
-    const { removeMarker, deleteDatabaseMarker } = this.props;
-    removeMarker(id);
-    deleteDatabaseMarker(dbID);
+    const {
+      removeMarker,
+      deleteDatabaseMarker,
+      retrieveDatabaseMarkers,
+      map,
+      database,
+    } = this.props;
+
+    let check = () => {
+      isMarkerInDatabase(id)
+        .then(async (resp) => {
+          resp = await resp.json();
+          console.log(resp.status);
+          if (resp.status === 500) {
+            throw Error("No marker in database");
+          }
+        })
+        .then(() => {
+          for (let m of map.markers) {
+            console.log(m.id + " " + id);
+            if (m.id === id) {
+              removeMarker(id);
+              deleteDatabaseMarker(dbID);
+            }
+          }
+        })
+        .catch(error => console.log(error))
+    };
+
+    let magic = false;
+    for (let m of map.markers) {
+      if (m.id === id) {
+        magic = true;
+      }
+    }
+
+    if (magic) {
+      check();
+    } else {
+      alert("Can only delete your own markers");
+    }
   }
 
   _getMarkers() {

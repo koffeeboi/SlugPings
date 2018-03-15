@@ -39,8 +39,10 @@ export const deleteDatabaseMarker = (id) => (dispatch, getState) => {
     method: 'DELETE',
   })
     .then((resp) => {
-      if (resp.status !== 200)
+      if (resp.status !== 200) {
+        alert("You can only delete your own marker.");
         throw Error("Something went wrong when deleting marker from database");
+      }
 
       dispatch(retrieveDatabaseMarkers());
       console.log("Successfully deleted marker=" + id);
